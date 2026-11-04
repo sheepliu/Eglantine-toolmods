@@ -1,0 +1,4062 @@
+﻿[
+    {
+        "iid":  "IID_お食事無料券",
+        "name_jp":  "お食事無料券",
+        "name_zh_tw":  "免費用餐券",
+        "name_zh_cn":  "免费用餐券",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_しなやかな釣り竿",
+        "name_jp":  "しなやかな釣り竿",
+        "name_zh_tw":  "有彈性的釣竿",
+        "name_zh_cn":  "有弹性的钓竿",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_はやての羽",
+        "name_jp":  "はやての羽",
+        "name_zh_tw":  "疾風羽毛",
+        "name_zh_cn":  "疾风羽毛",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_よく切れる彫刻刀",
+        "name_jp":  "よく切れる彫刻刀",
+        "name_zh_tw":  "鋒利的雕刻刀",
+        "name_zh_cn":  "锋利的雕刻刀",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_アイギーナ水晶",
+        "name_jp":  "アイギーナ水晶",
+        "name_zh_tw":  "艾基納水晶",
+        "name_zh_cn":  "艾基纳水晶",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_アイスブレード",
+        "name_jp":  "アイスブレード",
+        "name_zh_tw":  "冰刃",
+        "name_zh_cn":  "冰刃",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_アウロラの守護布",
+        "name_jp":  "アウロラの守護布",
+        "name_zh_tw":  "歐若拉的守護布",
+        "name_zh_cn":  "欧若拉的守护布",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_アウロラの星槍",
+        "name_jp":  "アウロラの星槍",
+        "name_zh_tw":  "歐若拉之星槍",
+        "name_zh_cn":  "欧若拉之星枪",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_アオギンジ",
+        "name_jp":  "アオギンジ",
+        "name_zh_tw":  "青津吉",
+        "name_zh_cn":  "青津吉",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_アカキンバイ",
+        "name_jp":  "アカキンバイ",
+        "name_zh_tw":  "赤金拜",
+        "name_zh_cn":  "赤金拜",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_アガゼの弓",
+        "name_jp":  "アガゼの弓",
+        "name_zh_tw":  "亞革傑之弓",
+        "name_zh_cn":  "亚革杰之弓",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_アガルチウム",
+        "name_jp":  "アガルチウム",
+        "name_zh_tw":  "阿加爾金屬",
+        "name_zh_cn":  "阿加尔金属",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_アガヴェ",
+        "name_jp":  "アガヴェ",
+        "name_zh_tw":  "龍舌蘭",
+        "name_zh_cn":  "龙舌兰",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_アグネアの書",
+        "name_jp":  "アグネアの書",
+        "name_zh_tw":  "阿古尼亞之書",
+        "name_zh_cn":  "阿古尼亚之书",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_アグネアの矢",
+        "name_jp":  "アグネアの矢",
+        "name_zh_tw":  "阿古尼亞之箭",
+        "name_zh_cn":  "阿古尼亚之箭",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_アダマント",
+        "name_jp":  "アダマント",
+        "name_zh_tw":  "精金",
+        "name_zh_cn":  "精金",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_アパチア",
+        "name_jp":  "アパチア",
+        "name_zh_tw":  "阿帕提芽",
+        "name_zh_cn":  "阿帕提芽",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_アム・ルー染手巾",
+        "name_jp":  "アム・ルー染手巾",
+        "name_zh_tw":  "阿姆‧盧染色手帕",
+        "name_zh_cn":  "阿姆·卢染色手帕",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_アルビネニシン",
+        "name_jp":  "アルビネニシン",
+        "name_zh_tw":  "阿魯比聶鯡魚",
+        "name_zh_cn":  "阿鲁比聂鲱鱼",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_アルマメット",
+        "name_jp":  "アルマメット",
+        "name_zh_tw":  "亞爾瑪梅托",
+        "name_zh_cn":  "亚尔玛梅托",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_アレクトーガルム",
+        "name_jp":  "アレクトーガルム",
+        "name_zh_tw":  "阿雷庫托魚醬",
+        "name_zh_cn":  "阿雷库托鱼酱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_アロー",
+        "name_jp":  "アロー",
+        "name_zh_tw":  "光箭",
+        "name_zh_cn":  "光箭",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_アンスウェラー",
+        "name_jp":  "アンスウェラー",
+        "name_zh_tw":  "安薩拉",
+        "name_zh_cn":  "安萨拉",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_アンスウェラー凰",
+        "name_jp":  "アンスウェラー凰",
+        "name_zh_tw":  "安薩拉‧凰",
+        "name_zh_cn":  "安萨拉·凰",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_アンスウェラー改",
+        "name_jp":  "アンスウェラー改",
+        "name_zh_tw":  "安薩拉‧改",
+        "name_zh_cn":  "安萨拉·改",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_アンスウェラー砕",
+        "name_jp":  "アンスウェラー砕",
+        "name_zh_tw":  "安薩拉‧碎",
+        "name_zh_cn":  "安萨拉·碎",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_アンゼリカ",
+        "name_jp":  "アンゼリカ",
+        "name_zh_tw":  "白芷",
+        "name_zh_cn":  "白芷",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_アーカイヴΖ",
+        "name_jp":  "アーカイヴΖ",
+        "name_zh_tw":  "檔案Ζ",
+        "name_zh_cn":  "档案Ζ",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_アーカイヴΘ",
+        "name_jp":  "アーカイヴΘ",
+        "name_zh_tw":  "檔案Θ",
+        "name_zh_cn":  "档案Θ",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_イチノミ",
+        "name_jp":  "イチノミ",
+        "name_zh_tw":  "壹果",
+        "name_zh_cn":  "壹果",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_イデアの弓",
+        "name_jp":  "イデアの弓",
+        "name_zh_tw":  "伊地亞之弓",
+        "name_zh_cn":  "伊地亚之弓",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ウィンド",
+        "name_jp":  "ウィンド",
+        "name_zh_tw":  "烈風",
+        "name_zh_cn":  "烈风",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ウゴウの弓",
+        "name_jp":  "ウゴウの弓",
+        "name_zh_tw":  "烏號之弓",
+        "name_zh_cn":  "乌号之弓",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ウサモス",
+        "name_jp":  "ウサモス",
+        "name_zh_tw":  "烏薩摩斯",
+        "name_zh_cn":  "乌萨摩斯",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ウラノタイト",
+        "name_jp":  "ウラノタイト",
+        "name_zh_tw":  "烏拉諾礦",
+        "name_zh_cn":  "乌拉诺矿",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ウーツ鋼",
+        "name_jp":  "ウーツ鋼",
+        "name_zh_tw":  "烏茲鋼",
+        "name_zh_cn":  "乌兹钢",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_エクスカリバー",
+        "name_jp":  "エクスカリバー",
+        "name_zh_tw":  "埃克斯卡利伯",
+        "name_zh_cn":  "埃克斯卡利伯",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_エマージス",
+        "name_jp":  "エマージス",
+        "name_zh_tw":  "要害回避",
+        "name_zh_cn":  "要害回避",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_エレクトラ地図",
+        "name_jp":  "エレクトラ地図",
+        "name_zh_tw":  "艾雷克特拉地圖",
+        "name_zh_cn":  "艾雷克特拉地图",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_エンジェル",
+        "name_jp":  "エンジェル",
+        "name_zh_tw":  "天使",
+        "name_zh_cn":  "天使",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_エンリエット",
+        "name_jp":  "エンリエット",
+        "name_zh_tw":  "恩黎艾特",
+        "name_zh_cn":  "恩黎艾特",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_オオカミ肉",
+        "name_jp":  "オオカミ肉",
+        "name_zh_tw":  "狼肉",
+        "name_zh_cn":  "狼肉",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_オドモンジュ",
+        "name_jp":  "オドモンジュ",
+        "name_zh_tw":  "歐多夢竺",
+        "name_zh_cn":  "欧多梦竺",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_オブロマ",
+        "name_jp":  "オブロマ",
+        "name_zh_tw":  "奧卜洛瑪",
+        "name_zh_cn":  "奥卜洛玛",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_オリハルコン",
+        "name_jp":  "オリハルコン",
+        "name_zh_tw":  "奧利哈鋼",
+        "name_zh_cn":  "奥利哈钢",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_オリバ",
+        "name_jp":  "オリバ",
+        "name_zh_tw":  "甘欖",
+        "name_zh_cn":  "甘榄",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_オルニウスのフン",
+        "name_jp":  "オルニウスのフン",
+        "name_zh_tw":  "歐魯尼烏斯糞",
+        "name_zh_cn":  "欧鲁尼乌斯粪",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_オーガスのテフ",
+        "name_jp":  "オーガスのテフ",
+        "name_zh_tw":  "歐加斯特芙",
+        "name_zh_cn":  "欧加斯特芙",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_オーラ",
+        "name_jp":  "オーラ",
+        "name_zh_tw":  "輝光",
+        "name_zh_cn":  "辉光",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_カガヤキウオ",
+        "name_jp":  "カガヤキウオ",
+        "name_zh_tw":  "輝光魚",
+        "name_zh_cn":  "辉光鱼",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_カスタリア地図",
+        "name_jp":  "カスタリア地図",
+        "name_zh_tw":  "卡斯塔利亞地圖",
+        "name_zh_cn":  "卡斯塔利亚地图",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_カダム",
+        "name_jp":  "カダム",
+        "name_zh_tw":  "咖噠姆",
+        "name_zh_cn":  "咖哒姆",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_カレット",
+        "name_jp":  "カレット",
+        "name_zh_tw":  "碎晶",
+        "name_zh_cn":  "碎晶",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_カーネボニート",
+        "name_jp":  "カーネボニート",
+        "name_zh_tw":  "肉鰹",
+        "name_zh_cn":  "肉鲣",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_カーラの彫像",
+        "name_jp":  "カーラの彫像",
+        "name_zh_tw":  "卡拉雕像",
+        "name_zh_cn":  "卡拉雕像",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_カーラの聖針",
+        "name_jp":  "カーラの聖針",
+        "name_zh_tw":  "卡拉的聖針",
+        "name_zh_cn":  "卡拉的圣针",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ガラマーリン",
+        "name_jp":  "ガラマーリン",
+        "name_zh_tw":  "加拉馬林",
+        "name_zh_cn":  "加拉马林",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ガランの闇腕輪",
+        "name_jp":  "ガランの闇腕輪",
+        "name_zh_tw":  "迦藍的闇手環",
+        "name_zh_cn":  "迦蓝的暗手环",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ガルム",
+        "name_jp":  "ガルム",
+        "name_zh_tw":  "魚醬",
+        "name_zh_cn":  "鱼酱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_キルソード",
+        "name_jp":  "キルソード",
+        "name_zh_tw":  "必殺劍",
+        "name_zh_cn":  "必杀剑",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_キンバイ",
+        "name_jp":  "キンバイ",
+        "name_zh_tw":  "金拜",
+        "name_zh_cn":  "金拜",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_キンバショウ",
+        "name_jp":  "キンバショウ",
+        "name_zh_tw":  "金芭蕉",
+        "name_zh_cn":  "金芭蕉",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ギスコの財宝",
+        "name_jp":  "ギスコの財宝",
+        "name_zh_tw":  "基斯柯的財寶",
+        "name_zh_cn":  "基斯柯的财宝",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ギンジ",
+        "name_jp":  "ギンジ",
+        "name_zh_tw":  "津吉",
+        "name_zh_cn":  "津吉",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ギンジ入りセルビ",
+        "name_jp":  "ギンジ入りセルビ",
+        "name_zh_tw":  "加了津吉的雪露必",
+        "name_zh_cn":  "加了津吉的雪露必",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_クイーンローチ",
+        "name_jp":  "クイーンローチ",
+        "name_zh_tw":  "女王泥鰍",
+        "name_zh_cn":  "女王泥鳅",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_クサリク肉",
+        "name_jp":  "クサリク肉",
+        "name_zh_tw":  "庫沙里克肉",
+        "name_zh_cn":  "库沙里克肉",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_クマ肉",
+        "name_jp":  "クマ肉",
+        "name_zh_tw":  "熊肉",
+        "name_zh_cn":  "熊肉",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_クレストル",
+        "name_jp":  "クレストル",
+        "name_zh_tw":  "庫勒司妥露",
+        "name_zh_cn":  "库勒司妥露",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_クレールの大槌",
+        "name_jp":  "クレールの大槌",
+        "name_zh_tw":  "柯雷爾之大錘",
+        "name_zh_cn":  "柯雷尔之大锤",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_グラディゴビー",
+        "name_jp":  "グラディゴビー",
+        "name_zh_tw":  "古拉迪蝦虎魚",
+        "name_zh_cn":  "古拉迪虾虎鱼",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_グルマオサ",
+        "name_jp":  "グルマオサ",
+        "name_zh_tw":  "佳蘭",
+        "name_zh_cn":  "佳兰",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_グレイブ",
+        "name_jp":  "グレイブ",
+        "name_zh_tw":  "長柄刀",
+        "name_zh_cn":  "长柄刀",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_グレートソード",
+        "name_jp":  "グレートソード",
+        "name_zh_tw":  "巨劍",
+        "name_zh_cn":  "巨剑",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ゲキ",
+        "name_jp":  "ゲキ",
+        "name_zh_tw":  "長戟",
+        "name_zh_cn":  "长戟",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ココミンジ",
+        "name_jp":  "ココミンジ",
+        "name_zh_tw":  "可可敏吉",
+        "name_zh_cn":  "可可敏吉",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_コーシャルーガー",
+        "name_jp":  "コーシャルーガー",
+        "name_zh_tw":  "柯夏魯雀鱔",
+        "name_zh_cn":  "柯夏鲁雀鳝",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ゴールドトラウト",
+        "name_jp":  "ゴールドトラウト",
+        "name_zh_tw":  "金鱒",
+        "name_zh_cn":  "金鳟",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_サイレス",
+        "name_jp":  "サイレス",
+        "name_zh_tw":  "沉默",
+        "name_zh_cn":  "沉默",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_サガリス",
+        "name_jp":  "サガリス",
+        "name_zh_tw":  "投斧",
+        "name_zh_cn":  "投斧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_サバクキビ",
+        "name_jp":  "サバクキビ",
+        "name_zh_tw":  "沙漠黍",
+        "name_zh_cn":  "沙漠黍",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_サラマンダー",
+        "name_jp":  "サラマンダー",
+        "name_zh_tw":  "沙拉曼達",
+        "name_zh_cn":  "沙拉曼达",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_サラミスの菓子",
+        "name_jp":  "サラミスの菓子",
+        "name_zh_tw":  "薩拉彌斯的點心",
+        "name_zh_cn":  "萨拉弥斯的点心",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_サンダー",
+        "name_jp":  "サンダー",
+        "name_zh_tw":  "雷電",
+        "name_zh_cn":  "雷电",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_サンダーストーム",
+        "name_jp":  "サンダーストーム",
+        "name_zh_tw":  "雷暴",
+        "name_zh_cn":  "雷暴",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_サンダーソード",
+        "name_jp":  "サンダーソード",
+        "name_zh_tw":  "雷電劍",
+        "name_zh_cn":  "雷电剑",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_サンドバアルの尾",
+        "name_jp":  "サンドバアルの尾",
+        "name_zh_tw":  "沙之主的尾巴",
+        "name_zh_cn":  "沙之主的尾巴",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_サンノミ",
+        "name_jp":  "サンノミ",
+        "name_zh_tw":  "太陽果",
+        "name_zh_cn":  "太阳果",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_サヴェロン地図",
+        "name_jp":  "サヴェロン地図",
+        "name_zh_tw":  "薩維隆地圖",
+        "name_zh_cn":  "萨维隆地图",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ザルモクシス",
+        "name_jp":  "ザルモクシス",
+        "name_zh_tw":  "查爾摩克西斯",
+        "name_zh_cn":  "查尔摩克西斯",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ザンゲ",
+        "name_jp":  "ザンゲ",
+        "name_zh_tw":  "贊格",
+        "name_zh_cn":  "赞格",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_シェイバー",
+        "name_jp":  "シェイバー",
+        "name_zh_tw":  "風刃",
+        "name_zh_cn":  "风刃",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_シナモス",
+        "name_jp":  "シナモス",
+        "name_zh_tw":  "西拿摩司",
+        "name_zh_cn":  "西拿摩司",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_シャクトウ",
+        "name_jp":  "シャクトウ",
+        "name_zh_tw":  "夏庫托",
+        "name_zh_cn":  "夏库托",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_シュガーマーリン",
+        "name_jp":  "シュガーマーリン",
+        "name_zh_tw":  "香甜馬林",
+        "name_zh_cn":  "香甜马林",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ショートアクス",
+        "name_jp":  "ショートアクス",
+        "name_zh_tw":  "短斧",
+        "name_zh_cn":  "短斧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ショートスピア",
+        "name_jp":  "ショートスピア",
+        "name_zh_tw":  "短槍",
+        "name_zh_cn":  "短枪",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ショートボウ",
+        "name_jp":  "ショートボウ",
+        "name_zh_tw":  "短弓",
+        "name_zh_cn":  "短弓",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_シンザのモリ",
+        "name_jp":  "シンザのモリ",
+        "name_zh_tw":  "辛薩的魚叉",
+        "name_zh_cn":  "辛萨的鱼叉",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_シールドアクス",
+        "name_jp":  "シールドアクス",
+        "name_zh_tw":  "護盾斧",
+        "name_zh_cn":  "护盾斧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_シールドパイク",
+        "name_jp":  "シールドパイク",
+        "name_zh_tw":  "盾形狗魚",
+        "name_zh_cn":  "盾形狗鱼",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ジャマダハル",
+        "name_jp":  "ジャマダハル",
+        "name_zh_tw":  "加瑪達哈爾",
+        "name_zh_cn":  "加玛达哈尔",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ジャーメルの乳",
+        "name_jp":  "ジャーメルの乳",
+        "name_zh_tw":  "迦梅爾奶",
+        "name_zh_cn":  "迦梅尔奶",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ジュラの彫像",
+        "name_jp":  "ジュラの彫像",
+        "name_zh_tw":  "茱拉雕像",
+        "name_zh_cn":  "茱拉雕像",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ジョッパ",
+        "name_jp":  "ジョッパ",
+        "name_zh_tw":  "約帕",
+        "name_zh_cn":  "约帕",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ジール硬貨",
+        "name_jp":  "ジール硬貨",
+        "name_zh_tw":  "紀爾硬幣",
+        "name_zh_cn":  "纪尔硬币",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_スイランの闇輪虎",
+        "name_jp":  "スイランの闇輪虎",
+        "name_zh_tw":  "翠蘭的闇輪虎",
+        "name_zh_cn":  "翠兰的暗轮虎",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_スイランの魔輪虎",
+        "name_jp":  "スイランの魔輪虎",
+        "name_zh_tw":  "翠蘭的魔輪虎",
+        "name_zh_cn":  "翠兰的魔轮虎",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_スウィートリーフ",
+        "name_jp":  "スウィートリーフ",
+        "name_zh_tw":  "甜美利芙",
+        "name_zh_cn":  "甜美利芙",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_スカライ",
+        "name_jp":  "スカライ",
+        "name_zh_tw":  "斯卡萊伊",
+        "name_zh_cn":  "斯卡莱伊",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_スターライト",
+        "name_jp":  "スターライト",
+        "name_zh_tw":  "星光",
+        "name_zh_cn":  "星光",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_スパイスリーフ",
+        "name_jp":  "スパイスリーフ",
+        "name_zh_tw":  "香辛利芙",
+        "name_zh_cn":  "香辛利芙",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_スマッシュアクス",
+        "name_jp":  "スマッシュアクス",
+        "name_zh_tw":  "猛擊斧",
+        "name_zh_cn":  "猛击斧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_スミルノスの雷甲",
+        "name_jp":  "スミルノスの雷甲",
+        "name_zh_tw":  "史米爾諾斯之雷甲",
+        "name_zh_cn":  "史米尔诺斯之雷甲",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_スレンドスピア",
+        "name_jp":  "スレンドスピア",
+        "name_zh_tw":  "投槍",
+        "name_zh_cn":  "投枪",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_セムイモ",
+        "name_jp":  "セムイモ",
+        "name_zh_tw":  "塞姆芋",
+        "name_zh_cn":  "塞姆芋",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ゼピュロスの盾",
+        "name_jp":  "ゼピュロスの盾",
+        "name_zh_tw":  "仄普洛斯之盾",
+        "name_zh_cn":  "仄普洛斯之盾",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ソリダス地図",
+        "name_jp":  "ソリダス地図",
+        "name_zh_tw":  "索利達斯地圖",
+        "name_zh_cn":  "索利达斯地图",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ソルギ",
+        "name_jp":  "ソルギ",
+        "name_zh_tw":  "梭露季",
+        "name_zh_cn":  "梭露季",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ソルダネラ",
+        "name_jp":  "ソルダネラ",
+        "name_zh_tw":  "雪鈴花",
+        "name_zh_cn":  "雪铃花",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ソレルの輝槍",
+        "name_jp":  "ソレルの輝槍",
+        "name_zh_tw":  "索雷爾之輝槍",
+        "name_zh_cn":  "索雷尔之辉枪",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ソロム",
+        "name_jp":  "ソロム",
+        "name_zh_tw":  "索羅姆",
+        "name_zh_cn":  "索罗姆",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ゾトーゴン",
+        "name_jp":  "ゾトーゴン",
+        "name_zh_tw":  "佐托貢",
+        "name_zh_cn":  "佐托贡",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_タナトス",
+        "name_jp":  "タナトス",
+        "name_zh_tw":  "達拿托斯之光",
+        "name_zh_cn":  "达拿托斯之光",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_タルトゴビー",
+        "name_jp":  "タルトゴビー",
+        "name_zh_tw":  "塔爾特蝦虎魚",
+        "name_zh_cn":  "塔尔特虾虎鱼",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_タレイア地図",
+        "name_jp":  "タレイア地図",
+        "name_zh_tw":  "塔雷亞地圖",
+        "name_zh_cn":  "塔雷亚地图",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ダグザの棍棒",
+        "name_jp":  "ダグザの棍棒",
+        "name_zh_tw":  "韃古扎之棍棒",
+        "name_zh_cn":  "鞑古扎之棍棒",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ダグザの神盾",
+        "name_jp":  "ダグザの神盾",
+        "name_zh_tw":  "韃古扎的神盾",
+        "name_zh_cn":  "鞑古扎的神盾",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ダグザの闇棍棒",
+        "name_jp":  "ダグザの闇棍棒",
+        "name_zh_tw":  "韃古扎之闇棍棒",
+        "name_zh_cn":  "鞑古扎之暗棍棒",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ダグザヒゲシバ",
+        "name_jp":  "ダグザヒゲシバ",
+        "name_zh_tw":  "韃古扎鼠尾粟",
+        "name_zh_cn":  "鞑古扎鼠尾粟",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ダグザンディ",
+        "name_jp":  "ダグザンディ",
+        "name_zh_tw":  "韃古扎恩滌",
+        "name_zh_cn":  "鞑古扎恩涤",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ダッカモンジュ",
+        "name_jp":  "ダッカモンジュ",
+        "name_zh_tw":  "達卡夢竺",
+        "name_zh_cn":  "达卡梦竺",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ダバの羅針盤",
+        "name_jp":  "ダバの羅針盤",
+        "name_zh_tw":  "達巴的羅盤",
+        "name_zh_cn":  "达巴的罗盘",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ダバの闇羅針盤",
+        "name_jp":  "ダバの闇羅針盤",
+        "name_zh_tw":  "達巴的闇羅盤",
+        "name_zh_cn":  "达巴的暗罗盘",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ダンテ戯曲全集",
+        "name_jp":  "ダンテ戯曲全集",
+        "name_zh_tw":  "丹提戲曲全集",
+        "name_zh_cn":  "丹提戏曲全集",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ダ・ミナの剣",
+        "name_jp":  "ダ・ミナの剣",
+        "name_zh_tw":  "達‧米納劍",
+        "name_zh_cn":  "达·米纳剑",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ダ・ミナの弓",
+        "name_jp":  "ダ・ミナの弓",
+        "name_zh_tw":  "達‧米納弓",
+        "name_zh_cn":  "达·米纳弓",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ダ・ミナの斧",
+        "name_jp":  "ダ・ミナの斧",
+        "name_zh_tw":  "達‧米納斧",
+        "name_zh_cn":  "达·米纳斧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ダ・ミナの槍",
+        "name_jp":  "ダ・ミナの槍",
+        "name_zh_tw":  "達‧米納槍",
+        "name_zh_cn":  "达·米纳枪",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ダ・ミナの武具箱",
+        "name_jp":  "ダ・ミナの武具箱",
+        "name_zh_tw":  "達‧米納武具箱",
+        "name_zh_cn":  "达·米纳武具箱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ダ・ミナの盾",
+        "name_jp":  "ダ・ミナの盾",
+        "name_zh_tw":  "達‧米納盾",
+        "name_zh_cn":  "达·米纳盾",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ダ・ミナの籠手",
+        "name_jp":  "ダ・ミナの籠手",
+        "name_zh_tw":  "達‧米納手甲",
+        "name_zh_cn":  "达·米纳手甲",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ダークスパイクΤ",
+        "name_jp":  "ダークスパイクΤ",
+        "name_zh_tw":  "暗黑衝擊Τ",
+        "name_zh_cn":  "暗黑冲击Τ",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ダークフィッシュ",
+        "name_jp":  "ダークフィッシュ",
+        "name_zh_tw":  "闇魚",
+        "name_zh_cn":  "暗鱼",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ダークメタル",
+        "name_jp":  "ダークメタル",
+        "name_zh_tw":  "黑暗金屬",
+        "name_zh_cn":  "黑暗金属",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_チャノキ",
+        "name_jp":  "チャノキ",
+        "name_zh_tw":  "茶樹",
+        "name_zh_cn":  "茶树",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_テフノミ",
+        "name_jp":  "テフノミ",
+        "name_zh_tw":  "特芙果",
+        "name_zh_cn":  "特芙果",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_テフ入り焼き菓子",
+        "name_jp":  "テフ入り焼き菓子",
+        "name_zh_tw":  "加了特芙的烤點心",
+        "name_zh_cn":  "加了特芙的烤点心",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_デスΓ",
+        "name_jp":  "デスΓ",
+        "name_zh_tw":  "死神Γ",
+        "name_zh_cn":  "死神Γ",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_デーツ",
+        "name_jp":  "デーツ",
+        "name_zh_tw":  "椰棗",
+        "name_zh_cn":  "椰枣",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_トバリナラ",
+        "name_jp":  "トバリナラ",
+        "name_zh_tw":  "托巴霖橡木",
+        "name_zh_cn":  "托巴霖橡木",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_トロン",
+        "name_jp":  "トロン",
+        "name_zh_tw":  "托隆",
+        "name_zh_cn":  "托隆",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_トーチ",
+        "name_jp":  "トーチ",
+        "name_zh_tw":  "火炬",
+        "name_zh_cn":  "火炬",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ナイトキラー",
+        "name_jp":  "ナイトキラー",
+        "name_zh_tw":  "騎士殺手",
+        "name_zh_cn":  "骑士杀手",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ニネイアッカ",
+        "name_jp":  "ニネイアッカ",
+        "name_zh_tw":  "尼內亞卡",
+        "name_zh_cn":  "尼内亚卡",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ネメアード",
+        "name_jp":  "ネメアード",
+        "name_zh_tw":  "涅梅亞礦",
+        "name_zh_cn":  "涅梅亚矿",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ノアノミ",
+        "name_jp":  "ノアノミ",
+        "name_zh_tw":  "挪亞果",
+        "name_zh_cn":  "挪亚果",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ハクサン",
+        "name_jp":  "ハクサン",
+        "name_zh_tw":  "哈庫桑",
+        "name_zh_cn":  "哈库桑",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ハクレン",
+        "name_jp":  "ハクレン",
+        "name_zh_tw":  "哈庫連",
+        "name_zh_cn":  "哈库连",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ハルバード",
+        "name_jp":  "ハルバード",
+        "name_zh_tw":  "斧槍",
+        "name_zh_cn":  "斧枪",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ハンマー",
+        "name_jp":  "ハンマー",
+        "name_zh_tw":  "戰錘",
+        "name_zh_cn":  "战锤",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ハートボニート",
+        "name_jp":  "ハートボニート",
+        "name_zh_tw":  "心鰹",
+        "name_zh_cn":  "心鲣",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ハードフィッシュ",
+        "name_jp":  "ハードフィッシュ",
+        "name_zh_tw":  "硬魚",
+        "name_zh_cn":  "硬鱼",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_バアルパイク",
+        "name_jp":  "バアルパイク",
+        "name_zh_tw":  "霸爾狗魚",
+        "name_zh_cn":  "霸尔狗鱼",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_バウのフン",
+        "name_jp":  "バウのフン",
+        "name_zh_tw":  "巴烏糞",
+        "name_zh_cn":  "巴乌粪",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_バク",
+        "name_jp":  "バク",
+        "name_zh_tw":  "巴穀",
+        "name_zh_cn":  "巴谷",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_バサーク",
+        "name_jp":  "バサーク",
+        "name_zh_tw":  "狂亂",
+        "name_zh_cn":  "狂乱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_バザリーシャーク",
+        "name_jp":  "バザリーシャーク",
+        "name_zh_tw":  "巴札里鯊",
+        "name_zh_cn":  "巴札里鲨",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_バシテア地図",
+        "name_jp":  "バシテア地図",
+        "name_zh_tw":  "巴希泰雅地圖",
+        "name_zh_cn":  "巴希泰雅地图",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_バスカッチ",
+        "name_jp":  "バスカッチ",
+        "name_zh_tw":  "巴斯卡奇",
+        "name_zh_cn":  "巴斯卡奇",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_バトルボウ",
+        "name_jp":  "バトルボウ",
+        "name_zh_tw":  "戰弓",
+        "name_zh_cn":  "战弓",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_バリアー",
+        "name_jp":  "バリアー",
+        "name_zh_tw":  "防護罩",
+        "name_zh_cn":  "防护罩",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_バルディッシュ",
+        "name_jp":  "バルディッシュ",
+        "name_zh_tw":  "長柄斧",
+        "name_zh_cn":  "长柄斧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_バンシーΘ",
+        "name_jp":  "バンシーΘ",
+        "name_zh_tw":  "報喪Θ",
+        "name_zh_cn":  "报丧Θ",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_パイヤ",
+        "name_jp":  "パイヤ",
+        "name_zh_tw":  "派芽",
+        "name_zh_cn":  "派芽",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ヒカリボシ",
+        "name_jp":  "ヒカリボシ",
+        "name_zh_tw":  "光之星",
+        "name_zh_cn":  "光之星",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ヒシバナ",
+        "name_jp":  "ヒシバナ",
+        "name_zh_tw":  "菱花",
+        "name_zh_cn":  "菱花",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ヒンガシャ",
+        "name_jp":  "ヒンガシャ",
+        "name_zh_tw":  "檳迦舍",
+        "name_zh_cn":  "槟迦舍",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ビウエラ保全道具",
+        "name_jp":  "ビウエラ保全道具",
+        "name_zh_tw":  "比維拉琴保養工具",
+        "name_zh_cn":  "比维拉琴保养工具",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ビターリーフ",
+        "name_jp":  "ビターリーフ",
+        "name_zh_tw":  "苦澀利芙",
+        "name_zh_cn":  "苦涩利芙",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ビャクダンの香木",
+        "name_jp":  "ビャクダンの香木",
+        "name_zh_tw":  "白檀香木",
+        "name_zh_cn":  "白檀香木",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ピレスギク",
+        "name_jp":  "ピレスギク",
+        "name_zh_tw":  "驅蟲菊",
+        "name_zh_cn":  "驱虫菊",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ファイアー",
+        "name_jp":  "ファイアー",
+        "name_zh_tw":  "火焰",
+        "name_zh_cn":  "火焰",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_フィンブルの夜",
+        "name_jp":  "フィンブルの夜",
+        "name_zh_tw":  "芬布爾之夜",
+        "name_zh_cn":  "芬布尔之夜",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_フィンブルの書",
+        "name_jp":  "フィンブルの書",
+        "name_zh_tw":  "芬布爾之書",
+        "name_zh_cn":  "芬布尔之书",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_フォトナの彫像",
+        "name_jp":  "フォトナの彫像",
+        "name_zh_tw":  "芙托娜雕像",
+        "name_zh_cn":  "芙托娜雕像",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_フォドラの紅茶",
+        "name_jp":  "フォドラの紅茶",
+        "name_zh_tw":  "芙朵拉紅茶",
+        "name_zh_cn":  "芙朵拉红茶",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_フュージュ",
+        "name_jp":  "フュージュ",
+        "name_zh_tw":  "弗尤朱",
+        "name_zh_cn":  "弗尤朱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_フラーマ",
+        "name_jp":  "フラーマ",
+        "name_zh_tw":  "弗拉瑪",
+        "name_zh_cn":  "弗拉玛",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_フリッサ",
+        "name_jp":  "フリッサ",
+        "name_zh_tw":  "伏力薩",
+        "name_zh_cn":  "伏力萨",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_フリーズ",
+        "name_jp":  "フリーズ",
+        "name_zh_tw":  "冰封",
+        "name_zh_cn":  "冰封",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ブラギの絵筆",
+        "name_jp":  "ブラギの絵筆",
+        "name_zh_tw":  "布拉吉的畫筆",
+        "name_zh_cn":  "布拉吉的画笔",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ブラギの闇絵筆",
+        "name_jp":  "ブラギの闇絵筆",
+        "name_zh_tw":  "布拉吉的闇畫筆",
+        "name_zh_cn":  "布拉吉的暗画笔",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ブラクシテア地図",
+        "name_jp":  "ブラクシテア地図",
+        "name_zh_tw":  "布拉克辛泰雅地圖",
+        "name_zh_cn":  "布拉克辛泰雅地图",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ブラックローチ",
+        "name_jp":  "ブラックローチ",
+        "name_zh_tw":  "黑泥鰍",
+        "name_zh_cn":  "黑泥鳅",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ブリザー",
+        "name_jp":  "ブリザー",
+        "name_zh_tw":  "冰風雪",
+        "name_zh_cn":  "冰风雪",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ブルースノール",
+        "name_jp":  "ブルースノール",
+        "name_zh_tw":  "藍雪石",
+        "name_zh_cn":  "蓝雪石",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ヘダグの弓",
+        "name_jp":  "ヘダグの弓",
+        "name_zh_tw":  "黑達古之弓",
+        "name_zh_cn":  "黑达古之弓",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ヘダグの闇弓",
+        "name_jp":  "ヘダグの闇弓",
+        "name_zh_tw":  "黑達古之闇弓",
+        "name_zh_cn":  "黑达古之暗弓",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ペガサスのフン",
+        "name_jp":  "ペガサスのフン",
+        "name_zh_tw":  "飛馬糞",
+        "name_zh_cn":  "飞马粪",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ペガサスの風景画",
+        "name_jp":  "ペガサスの風景画",
+        "name_zh_tw":  "飛馬的風景畫",
+        "name_zh_cn":  "飞马的风景画",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ホワイトトラウト",
+        "name_jp":  "ホワイトトラウト",
+        "name_zh_tw":  "白鱒",
+        "name_zh_cn":  "白鳟",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ボルガノン",
+        "name_jp":  "ボルガノン",
+        "name_zh_tw":  "火山爆焰",
+        "name_zh_cn":  "火山爆焰",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ポンゴ",
+        "name_jp":  "ポンゴ",
+        "name_zh_tw":  "蓬葛",
+        "name_zh_cn":  "蓬葛",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_マジックアレイ",
+        "name_jp":  "マジックアレイ",
+        "name_zh_tw":  "魔陣石",
+        "name_zh_cn":  "魔阵石",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_マジックシールド",
+        "name_jp":  "マジックシールド",
+        "name_zh_tw":  "魔法屏障",
+        "name_zh_cn":  "魔法屏障",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_マハマドゥの右腕",
+        "name_jp":  "マハマドゥの右腕",
+        "name_zh_tw":  "馬哈馬杜之右臂",
+        "name_zh_cn":  "马哈马杜之右臂",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_マハマドゥの槍",
+        "name_jp":  "マハマドゥの槍",
+        "name_zh_tw":  "馬哈馬杜之槍",
+        "name_zh_cn":  "马哈马杜之枪",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_マハマドゥの闇槍",
+        "name_jp":  "マハマドゥの闇槍",
+        "name_zh_tw":  "馬哈馬杜之闇槍",
+        "name_zh_cn":  "马哈马杜之暗枪",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_マハマドゥの闇腕",
+        "name_jp":  "マハマドゥの闇腕",
+        "name_zh_tw":  "馬哈馬杜之闇臂",
+        "name_zh_cn":  "马哈马杜之暗臂",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_マーズの熱剣",
+        "name_jp":  "マーズの熱剣",
+        "name_zh_tw":  "馬茲之熱劍",
+        "name_zh_cn":  "马兹之热剑",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_マーズの闇剣",
+        "name_jp":  "マーズの闇剣",
+        "name_zh_tw":  "馬茲之闇劍",
+        "name_zh_cn":  "马兹之暗剑",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ミザンガ",
+        "name_jp":  "ミザンガ",
+        "name_zh_tw":  "米贊加",
+        "name_zh_cn":  "米赞加",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ミラニラ",
+        "name_jp":  "ミラニラ",
+        "name_zh_tw":  "秘菈尼拉",
+        "name_zh_cn":  "秘菈尼拉",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ムーサの首飾り",
+        "name_jp":  "ムーサの首飾り",
+        "name_zh_tw":  "穆薩首飾",
+        "name_zh_cn":  "穆萨首饰",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ムーンフィッシュ",
+        "name_jp":  "ムーンフィッシュ",
+        "name_zh_tw":  "月魚",
+        "name_zh_cn":  "月鱼",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_メイス",
+        "name_jp":  "メイス",
+        "name_zh_tw":  "錘矛",
+        "name_zh_cn":  "锤矛",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_メグレズの砂",
+        "name_jp":  "メグレズの砂",
+        "name_zh_tw":  "梅古雷茲之沙",
+        "name_zh_cn":  "梅古雷兹之沙",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_メララ",
+        "name_jp":  "メララ",
+        "name_zh_tw":  "霉拉拉",
+        "name_zh_cn":  "霉拉拉",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_メリアス地図",
+        "name_jp":  "メリアス地図",
+        "name_zh_tw":  "梅利亞斯地圖",
+        "name_zh_cn":  "梅利亚斯地图",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_メルトフィッシュ",
+        "name_jp":  "メルトフィッシュ",
+        "name_zh_tw":  "融魚",
+        "name_zh_cn":  "融鱼",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_モルフィスの紅茶",
+        "name_jp":  "モルフィスの紅茶",
+        "name_zh_tw":  "摩爾菲斯紅茶",
+        "name_zh_cn":  "摩尔菲斯红茶",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_モルフィス歳時記",
+        "name_jp":  "モルフィス歳時記",
+        "name_zh_tw":  "摩爾菲斯歲時記",
+        "name_zh_cn":  "摩尔菲斯岁时记",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ヤクの乳",
+        "name_jp":  "ヤクの乳",
+        "name_zh_tw":  "亞庫奶",
+        "name_zh_cn":  "亚库奶",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ヤク肉",
+        "name_jp":  "ヤク肉",
+        "name_zh_tw":  "亞庫肉",
+        "name_zh_cn":  "亚库肉",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ヤーマンギク",
+        "name_jp":  "ヤーマンギク",
+        "name_zh_tw":  "亞曼菊",
+        "name_zh_cn":  "亚曼菊",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ユキトウ",
+        "name_jp":  "ユキトウ",
+        "name_zh_tw":  "尤基托烏",
+        "name_zh_cn":  "尤基托乌",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ユナメイ",
+        "name_jp":  "ユナメイ",
+        "name_zh_tw":  "尤那魅",
+        "name_zh_cn":  "尤那魅",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ユメノシルベ",
+        "name_jp":  "ユメノシルベ",
+        "name_zh_tw":  "夢之標",
+        "name_zh_cn":  "梦之标",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ユ・ファスの彫像",
+        "name_jp":  "ユ・ファスの彫像",
+        "name_zh_tw":  "幽‧法絲雕像",
+        "name_zh_cn":  "幽·法丝雕像",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ユ・ファスの肖像",
+        "name_jp":  "ユ・ファスの肖像",
+        "name_zh_tw":  "幽‧法絲的肖像",
+        "name_zh_cn":  "幽·法丝的肖像",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ライア",
+        "name_jp":  "ライア",
+        "name_zh_tw":  "聖治",
+        "name_zh_cn":  "圣治",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ライブ",
+        "name_jp":  "ライブ",
+        "name_zh_tw":  "聖療",
+        "name_zh_cn":  "圣疗",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ラザニバータ",
+        "name_jp":  "ラザニバータ",
+        "name_zh_tw":  "拉扎尼巴塔",
+        "name_zh_cn":  "拉扎尼巴塔",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ラッキーコイン",
+        "name_jp":  "ラッキーコイン",
+        "name_zh_tw":  "幸運幣",
+        "name_zh_cn":  "幸运币",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ラドンパイク",
+        "name_jp":  "ラドンパイク",
+        "name_zh_tw":  "拉冬狗魚",
+        "name_zh_cn":  "拉冬狗鱼",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ラドンローチ",
+        "name_jp":  "ラドンローチ",
+        "name_zh_tw":  "拉冬泥鰍",
+        "name_zh_cn":  "拉冬泥鳅",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ランバス地図",
+        "name_jp":  "ランバス地図",
+        "name_zh_tw":  "蘭巴斯地圖",
+        "name_zh_cn":  "兰巴斯地图",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ラーラン",
+        "name_jp":  "ラーラン",
+        "name_zh_tw":  "拉朗",
+        "name_zh_cn":  "拉朗",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_リカバー",
+        "name_jp":  "リカバー",
+        "name_zh_tw":  "聖癒",
+        "name_zh_cn":  "圣愈",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_リガネット",
+        "name_jp":  "リガネット",
+        "name_zh_tw":  "利加涅特",
+        "name_zh_cn":  "利加涅特",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_リザイア",
+        "name_jp":  "リザイア",
+        "name_zh_tw":  "聖吸",
+        "name_zh_cn":  "圣吸",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_リザーブ",
+        "name_jp":  "リザーブ",
+        "name_zh_tw":  "全體聖療",
+        "name_zh_cn":  "全体圣疗",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_リナリア",
+        "name_jp":  "リナリア",
+        "name_zh_tw":  "姬金魚草",
+        "name_zh_cn":  "姬金鱼草",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_リブロー",
+        "name_jp":  "リブロー",
+        "name_zh_tw":  "遠程聖療",
+        "name_zh_cn":  "远程圣疗",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_リルフィッシュ",
+        "name_jp":  "リルフィッシュ",
+        "name_zh_tw":  "里爾魚",
+        "name_zh_cn":  "里尔鱼",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ルナΛ",
+        "name_jp":  "ルナΛ",
+        "name_zh_tw":  "月神Λ",
+        "name_zh_cn":  "月神Λ",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ルフ肉",
+        "name_jp":  "ルフ肉",
+        "name_zh_tw":  "魯弗肉",
+        "name_zh_cn":  "鲁弗肉",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_レスキア",
+        "name_jp":  "レスキア",
+        "name_zh_tw":  "回援",
+        "name_zh_cn":  "回援",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_レスキュー",
+        "name_jp":  "レスキュー",
+        "name_zh_tw":  "救援",
+        "name_zh_cn":  "救援",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_レスト",
+        "name_jp":  "レスト",
+        "name_zh_tw":  "休息",
+        "name_zh_cn":  "休息",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_レッドフリッカ",
+        "name_jp":  "レッドフリッカ",
+        "name_zh_tw":  "紅爍",
+        "name_zh_cn":  "红烁",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ロカ",
+        "name_jp":  "ロカ",
+        "name_zh_tw":  "洛卡",
+        "name_zh_cn":  "洛卡",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ロングボウ",
+        "name_jp":  "ロングボウ",
+        "name_zh_tw":  "長弓",
+        "name_zh_cn":  "长弓",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ワラジムシ肉",
+        "name_jp":  "ワラジムシ肉",
+        "name_zh_tw":  "潮蟲肉",
+        "name_zh_cn":  "潮虫肉",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ワンダーリーフ",
+        "name_jp":  "ワンダーリーフ",
+        "name_zh_tw":  "玄妙利芙",
+        "name_zh_cn":  "玄妙利芙",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_ワープ",
+        "name_jp":  "ワープ",
+        "name_zh_tw":  "傳送",
+        "name_zh_cn":  "传送",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_七星核",
+        "name_jp":  "七星核",
+        "name_zh_tw":  "七星核",
+        "name_zh_cn":  "七星核",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_丈夫な背負い革袋",
+        "name_jp":  "丈夫な背負い革袋",
+        "name_zh_tw":  "耐用的皮革背包",
+        "name_zh_cn":  "耐用的皮革背包",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_三叉の矛",
+        "name_jp":  "三叉の矛",
+        "name_zh_tw":  "三叉戟",
+        "name_zh_cn":  "三叉戟",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_世界の名詩集",
+        "name_jp":  "世界の名詩集",
+        "name_zh_tw":  "世界名詩集",
+        "name_zh_cn":  "世界名诗集",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_乾坤圏",
+        "name_jp":  "乾坤圏",
+        "name_zh_tw":  "乾坤圈",
+        "name_zh_cn":  "乾坤圈",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_二振りの魚包丁",
+        "name_jp":  "二振りの魚包丁",
+        "name_zh_tw":  "兩把魚刀",
+        "name_zh_cn":  "两把鱼刀",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_修道会の杖",
+        "name_jp":  "修道会の杖",
+        "name_zh_tw":  "修道會之杖",
+        "name_zh_cn":  "修道会之杖",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_偃月刀",
+        "name_jp":  "偃月刀",
+        "name_zh_tw":  "偃月刀",
+        "name_zh_cn":  "偃月刀",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_傷薬",
+        "name_jp":  "傷薬",
+        "name_zh_tw":  "傷藥",
+        "name_zh_cn":  "伤药",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_儀礼用の鋭い槍",
+        "name_jp":  "儀礼用の鋭い槍",
+        "name_zh_tw":  "鋒利的禮儀用槍",
+        "name_zh_cn":  "锋利的礼仪用枪",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_公女の宝剣",
+        "name_jp":  "公女の宝剣",
+        "name_zh_tw":  "女爵的寶劍",
+        "name_zh_cn":  "女爵的宝剑",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_刺激的なゴーシュ",
+        "name_jp":  "刺激的なゴーシュ",
+        "name_zh_tw":  "味道刺激的赤燒",
+        "name_zh_cn":  "味道刺激的赤烧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_剣殺しの護符",
+        "name_jp":  "剣殺しの護符",
+        "name_zh_tw":  "破劍者護符",
+        "name_zh_cn":  "破剑者护符",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_力のしずく",
+        "name_jp":  "力のしずく",
+        "name_zh_tw":  "力量水滴",
+        "name_zh_cn":  "力量水滴",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_加護の露",
+        "name_jp":  "加護の露",
+        "name_zh_tw":  "加護之露",
+        "name_zh_cn":  "加护之露",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_南方のゴーシュ",
+        "name_jp":  "南方のゴーシュ",
+        "name_zh_tw":  "南方赤燒",
+        "name_zh_cn":  "南方赤烧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_南方の薫るテフ",
+        "name_jp":  "南方の薫るテフ",
+        "name_zh_tw":  "南方風味特芙",
+        "name_zh_cn":  "南方风味特芙",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_南洋冒険奇譚",
+        "name_jp":  "南洋冒険奇譚",
+        "name_zh_tw":  "南洋冒險奇譚",
+        "name_zh_cn":  "南洋冒险奇谭",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_南部の珍しい種子",
+        "name_jp":  "南部の珍しい種子",
+        "name_zh_tw":  "南部的稀有種子",
+        "name_zh_cn":  "南部的稀有种子",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_反撃の籠手",
+        "name_jp":  "反撃の籠手",
+        "name_zh_tw":  "反擊手甲",
+        "name_zh_cn":  "反击手甲",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_口寄せの枝",
+        "name_jp":  "口寄せの枝",
+        "name_zh_tw":  "招魂之枝",
+        "name_zh_cn":  "招魂之枝",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_古代の石板",
+        "name_jp":  "古代の石板",
+        "name_zh_tw":  "古代石板",
+        "name_zh_cn":  "古代石板",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_呪術師の古具",
+        "name_jp":  "呪術師の古具",
+        "name_zh_tw":  "咒術師的舊道具",
+        "name_zh_cn":  "咒术师的旧道具",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_味わい深い調味料",
+        "name_jp":  "味わい深い調味料",
+        "name_zh_tw":  "風味濃郁的調味料",
+        "name_zh_cn":  "风味浓郁的调味料",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_地弦・黒曜",
+        "name_jp":  "地弦・黒曜",
+        "name_zh_tw":  "地弦‧黑曜",
+        "name_zh_cn":  "地弦·黑曜",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_大きな金塊",
+        "name_jp":  "大きな金塊",
+        "name_zh_tw":  "大金塊",
+        "name_zh_cn":  "大金块",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_大亀の甲羅",
+        "name_jp":  "大亀の甲羅",
+        "name_zh_tw":  "巨大龜甲",
+        "name_zh_cn":  "巨大龟甲",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_大人の頬紅",
+        "name_jp":  "大人の頬紅",
+        "name_zh_tw":  "大人的胭脂",
+        "name_zh_cn":  "大人的胭脂",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_大地の顎",
+        "name_jp":  "大地の顎",
+        "name_zh_tw":  "大地之顎",
+        "name_zh_cn":  "大地之颚",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_大帝の腹帯",
+        "name_jp":  "大帝の腹帯",
+        "name_zh_tw":  "大帝腰封",
+        "name_zh_cn":  "大帝腰封",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_大熊の右鉤爪",
+        "name_jp":  "大熊の右鉤爪",
+        "name_zh_tw":  "大熊的右鉤爪",
+        "name_zh_cn":  "大熊的右钩爪",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_大熊の闇鉤爪",
+        "name_jp":  "大熊の闇鉤爪",
+        "name_zh_tw":  "大熊的闇鉤爪",
+        "name_zh_cn":  "大熊的暗钩爪",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_大砂金",
+        "name_jp":  "大砂金",
+        "name_zh_tw":  "大沙金",
+        "name_zh_cn":  "大沙金",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_大粒のテフ",
+        "name_jp":  "大粒のテフ",
+        "name_zh_tw":  "大粒特芙",
+        "name_zh_cn":  "大粒特芙",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_大粒の虫真珠",
+        "name_jp":  "大粒の虫真珠",
+        "name_zh_tw":  "大粒蟲珍珠",
+        "name_zh_cn":  "大粒虫珍珠",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_天使の衣",
+        "name_jp":  "天使の衣",
+        "name_zh_tw":  "天使之衣",
+        "name_zh_cn":  "天使之衣",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_天冠の鍵",
+        "name_jp":  "天冠の鍵",
+        "name_zh_tw":  "天冠鑰匙",
+        "name_zh_cn":  "天冠钥匙",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_天弦・月白",
+        "name_jp":  "天弦・月白",
+        "name_zh_tw":  "天弦‧月白",
+        "name_zh_cn":  "天弦·月白",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_太陽のゴーシュ",
+        "name_jp":  "太陽のゴーシュ",
+        "name_zh_tw":  "太陽赤燒",
+        "name_zh_cn":  "太阳赤烧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_太陽石",
+        "name_jp":  "太陽石",
+        "name_zh_tw":  "太陽石",
+        "name_zh_cn":  "太阳石",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_奇妙な野菜の種子",
+        "name_jp":  "奇妙な野菜の種子",
+        "name_zh_tw":  "奇妙的蔬菜種子",
+        "name_zh_cn":  "奇妙的蔬菜种子",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_奇跡の宝珠",
+        "name_jp":  "奇跡の宝珠",
+        "name_zh_tw":  "奇蹟寶珠",
+        "name_zh_cn":  "奇迹宝珠",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_女神の像",
+        "name_jp":  "女神の像",
+        "name_zh_tw":  "女神像",
+        "name_zh_cn":  "女神像",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_女神の指輪",
+        "name_jp":  "女神の指輪",
+        "name_zh_tw":  "女神戒指",
+        "name_zh_cn":  "女神戒指",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_女騎士と求婚者",
+        "name_jp":  "女騎士と求婚者",
+        "name_zh_tw":  "女騎士與求婚者",
+        "name_zh_cn":  "女骑士与求婚者",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_妖刀の鍔",
+        "name_jp":  "妖刀の鍔",
+        "name_zh_tw":  "妖刀之鍔",
+        "name_zh_cn":  "妖刀之锷",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_妖槍ヴェンデッタ",
+        "name_jp":  "妖槍ヴェンデッタ",
+        "name_zh_tw":  "妖槍溫德塔",
+        "name_zh_cn":  "妖枪温德塔",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_妖糸グレイプニル",
+        "name_jp":  "妖糸グレイプニル",
+        "name_zh_tw":  "妖線格萊普尼爾",
+        "name_zh_cn":  "妖线格莱普尼尔",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_嫌なガルム",
+        "name_jp":  "嫌なガルム",
+        "name_zh_tw":  "難聞的魚醬",
+        "name_zh_cn":  "难闻的鱼酱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_子猫の置物",
+        "name_jp":  "子猫の置物",
+        "name_zh_tw":  "小貓擺設",
+        "name_zh_cn":  "小猫摆设",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_安寧の露",
+        "name_jp":  "安寧の露",
+        "name_zh_tw":  "安寧之露",
+        "name_zh_cn":  "安宁之露",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_宝の鍵",
+        "name_jp":  "宝の鍵",
+        "name_zh_tw":  "寶箱鑰匙",
+        "name_zh_cn":  "宝箱钥匙",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_宝珠箱",
+        "name_jp":  "宝珠箱",
+        "name_zh_tw":  "寶珠箱",
+        "name_zh_cn":  "宝珠箱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_実用的な裁縫道具",
+        "name_jp":  "実用的な裁縫道具",
+        "name_zh_tw":  "實用裁縫工具",
+        "name_zh_cn":  "实用裁缝工具",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_家庭料理大全",
+        "name_jp":  "家庭料理大全",
+        "name_zh_tw":  "家庭料理大全",
+        "name_zh_cn":  "家庭料理大全",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_対魔の鉄甲",
+        "name_jp":  "対魔の鉄甲",
+        "name_zh_tw":  "對魔鐵甲",
+        "name_zh_cn":  "对魔铁甲",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_射手の指輪",
+        "name_jp":  "射手の指輪",
+        "name_zh_tw":  "射手戒指",
+        "name_zh_cn":  "射手戒指",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_小さい白い花の絵",
+        "name_jp":  "小さい白い花の絵",
+        "name_zh_tw":  "小白花繪畫",
+        "name_zh_cn":  "小白花绘画",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_小粒のテフ",
+        "name_jp":  "小粒のテフ",
+        "name_zh_tw":  "小粒特芙",
+        "name_zh_cn":  "小粒特芙",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_少し甘い焼き菓子",
+        "name_jp":  "少し甘い焼き菓子",
+        "name_zh_tw":  "微甜的烤點心",
+        "name_zh_cn":  "微甜的烤点心",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_少女の髪留め",
+        "name_jp":  "少女の髪留め",
+        "name_zh_tw":  "少女的髮夾",
+        "name_zh_cn":  "少女的发夹",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_巨人の指輪",
+        "name_jp":  "巨人の指輪",
+        "name_zh_tw":  "巨人戒指",
+        "name_zh_cn":  "巨人戒指",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_巨大な金塊",
+        "name_jp":  "巨大な金塊",
+        "name_zh_tw":  "巨大金塊",
+        "name_zh_cn":  "巨大金块",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_巨大肉",
+        "name_jp":  "巨大肉",
+        "name_zh_tw":  "巨大肉",
+        "name_zh_cn":  "巨大肉",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_巨大魚の目玉",
+        "name_jp":  "巨大魚の目玉",
+        "name_zh_tw":  "巨型魚的眼珠",
+        "name_zh_cn":  "巨型鱼的眼珠",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_常夜のカタラ",
+        "name_jp":  "常夜のカタラ",
+        "name_zh_tw":  "常夜的卡達拉",
+        "name_zh_cn":  "常夜的卡达拉",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_幻のガルム",
+        "name_jp":  "幻のガルム",
+        "name_zh_tw":  "幻之魚醬",
+        "name_zh_cn":  "幻之鱼酱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_幻のギンジ",
+        "name_jp":  "幻のギンジ",
+        "name_zh_tw":  "幻之津吉",
+        "name_zh_cn":  "幻之津吉",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_幻のソロモンテフ",
+        "name_jp":  "幻のソロモンテフ",
+        "name_zh_tw":  "幻之索羅門特芙",
+        "name_zh_cn":  "幻之索罗门特芙",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_幻影の指輪",
+        "name_jp":  "幻影の指輪",
+        "name_zh_tw":  "幻影戒指",
+        "name_zh_cn":  "幻影戒指",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_庶民百景",
+        "name_jp":  "庶民百景",
+        "name_zh_tw":  "庶民百景",
+        "name_zh_cn":  "庶民百景",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_廃墟で見つけた物",
+        "name_jp":  "廃墟で見つけた物",
+        "name_zh_tw":  "廢墟中發現的東西",
+        "name_zh_cn":  "废墟中发现的东西",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_弓の手入れ道具",
+        "name_jp":  "弓の手入れ道具",
+        "name_zh_tw":  "弓箭保養工具",
+        "name_zh_cn":  "弓箭保养工具",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_弓殺しの護符",
+        "name_jp":  "弓殺しの護符",
+        "name_zh_tw":  "破弓者護符",
+        "name_zh_cn":  "破弓者护符",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_弓砲台",
+        "name_jp":  "弓砲台",
+        "name_zh_tw":  "弓弩炮台",
+        "name_zh_cn":  "弓弩炮台",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_彷徨える壁",
+        "name_jp":  "彷徨える壁",
+        "name_zh_tw":  "徬徨之壁",
+        "name_zh_cn":  "彷徨之壁",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_必聖の宝珠",
+        "name_jp":  "必聖の宝珠",
+        "name_zh_tw":  "必聖寶珠",
+        "name_zh_cn":  "必圣宝珠",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_怨杖アーロン",
+        "name_jp":  "怨杖アーロン",
+        "name_zh_tw":  "怨杖亞隆",
+        "name_zh_cn":  "怨杖亚隆",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_戦魂石",
+        "name_jp":  "戦魂石",
+        "name_zh_tw":  "戰魂石",
+        "name_zh_cn":  "战魂石",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_手斧",
+        "name_jp":  "手斧",
+        "name_zh_tw":  "手斧",
+        "name_zh_cn":  "手斧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_手槍",
+        "name_jp":  "手槍",
+        "name_zh_tw":  "標槍",
+        "name_zh_cn":  "标枪",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_投石機",
+        "name_jp":  "投石機",
+        "name_zh_tw":  "投石機",
+        "name_zh_cn":  "投石机",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_指輪箱",
+        "name_jp":  "指輪箱",
+        "name_zh_tw":  "戒指箱",
+        "name_zh_cn":  "戒指箱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_挑戦の宝珠",
+        "name_jp":  "挑戦の宝珠",
+        "name_zh_tw":  "挑戰寶珠",
+        "name_zh_cn":  "挑战宝珠",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_教職員事件簿",
+        "name_jp":  "教職員事件簿",
+        "name_zh_tw":  "教職員事件簿",
+        "name_zh_cn":  "教职员事件簿",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_斧殺しの護符",
+        "name_jp":  "斧殺しの護符",
+        "name_zh_tw":  "破斧者護符",
+        "name_zh_cn":  "破斧者护符",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_斬馬刀",
+        "name_jp":  "斬馬刀",
+        "name_zh_tw":  "斬馬刀",
+        "name_zh_cn":  "斩马刀",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_旅の老師の口伝録",
+        "name_jp":  "旅の老師の口伝録",
+        "name_zh_tw":  "旅行老人的語錄",
+        "name_zh_cn":  "旅行老人的语录",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_書箱",
+        "name_jp":  "書箱",
+        "name_zh_tw":  "書箱",
+        "name_zh_cn":  "书箱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_月光石",
+        "name_jp":  "月光石",
+        "name_zh_tw":  "月光石",
+        "name_zh_cn":  "月光石",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_木彫りのジュラ像",
+        "name_jp":  "木彫りのジュラ像",
+        "name_zh_tw":  "木雕的茱拉像",
+        "name_zh_cn":  "木雕的茱拉像",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_木製の剣",
+        "name_jp":  "木製の剣",
+        "name_zh_tw":  "木製劍",
+        "name_zh_cn":  "木制剑",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_木製の弓",
+        "name_jp":  "木製の弓",
+        "name_zh_tw":  "木製弓",
+        "name_zh_cn":  "木制弓",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_木製の斧",
+        "name_jp":  "木製の斧",
+        "name_zh_tw":  "木製斧",
+        "name_zh_cn":  "木制斧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_木製の槍",
+        "name_jp":  "木製の槍",
+        "name_zh_tw":  "木製槍",
+        "name_zh_cn":  "木制枪",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_木製の盾",
+        "name_jp":  "木製の盾",
+        "name_zh_tw":  "木製盾",
+        "name_zh_cn":  "木制盾",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_木製の籠手",
+        "name_jp":  "木製の籠手",
+        "name_zh_tw":  "木製手甲",
+        "name_zh_cn":  "木制手甲",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_朱印の密書",
+        "name_jp":  "朱印の密書",
+        "name_zh_tw":  "蓋有紅印的密信",
+        "name_zh_cn":  "盖有红印的密信",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_朱色の髪飾り",
+        "name_jp":  "朱色の髪飾り",
+        "name_zh_tw":  "朱紅色髮飾",
+        "name_zh_cn":  "朱红色发饰",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_村の素朴な料理集",
+        "name_jp":  "村の素朴な料理集",
+        "name_zh_tw":  "鄉村簡樸料理集",
+        "name_zh_cn":  "乡村简朴料理集",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_東方の最高級茶葉",
+        "name_jp":  "東方の最高級茶葉",
+        "name_zh_tw":  "東方頂級茶葉",
+        "name_zh_cn":  "东方顶级茶叶",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_東方の漆黒絹",
+        "name_jp":  "東方の漆黒絹",
+        "name_zh_tw":  "東方漆黑絹",
+        "name_zh_cn":  "东方漆黑绢",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_東方の盤上遊戯",
+        "name_jp":  "東方の盤上遊戯",
+        "name_zh_tw":  "東方桌上遊戲",
+        "name_zh_cn":  "东方桌上游戏",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_東方の耳飾り",
+        "name_jp":  "東方の耳飾り",
+        "name_zh_tw":  "東方耳飾",
+        "name_zh_cn":  "东方耳饰",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_東方恋愛見聞録",
+        "name_jp":  "東方恋愛見聞録",
+        "name_zh_tw":  "東方戀愛見聞錄",
+        "name_zh_cn":  "东方恋爱见闻录",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_栄養満点お菓子本",
+        "name_jp":  "栄養満点お菓子本",
+        "name_zh_tw":  "營養滿分點心書",
+        "name_zh_cn":  "营养满分点心书",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_槍殺しの護符",
+        "name_jp":  "槍殺しの護符",
+        "name_zh_tw":  "破槍者護符",
+        "name_zh_cn":  "破枪者护符",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_模造の武功章",
+        "name_jp":  "模造の武功章",
+        "name_zh_tw":  "仿製戰功勳章",
+        "name_zh_cn":  "仿制战功勋章",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_機械の身体",
+        "name_jp":  "機械の身体",
+        "name_zh_tw":  "機械之軀",
+        "name_zh_cn":  "机械之躯",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_武術訓練用の重り",
+        "name_jp":  "武術訓練用の重り",
+        "name_zh_tw":  "武術訓練用重物",
+        "name_zh_cn":  "武术训练用重物",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_毒の剣",
+        "name_jp":  "毒の剣",
+        "name_zh_tw":  "毒劍",
+        "name_zh_cn":  "毒剑",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_毒の弓",
+        "name_jp":  "毒の弓",
+        "name_zh_tw":  "毒弓",
+        "name_zh_cn":  "毒弓",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_毒喰の宝珠",
+        "name_jp":  "毒喰の宝珠",
+        "name_zh_tw":  "噬毒寶珠",
+        "name_zh_cn":  "噬毒宝珠",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_毒消し",
+        "name_jp":  "毒消し",
+        "name_zh_tw":  "解毒劑",
+        "name_zh_cn":  "解毒剂",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_毒狩の宝珠",
+        "name_jp":  "毒狩の宝珠",
+        "name_zh_tw":  "獵毒寶珠",
+        "name_zh_cn":  "猎毒宝珠",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_毒石",
+        "name_jp":  "毒石",
+        "name_zh_tw":  "毒石",
+        "name_zh_cn":  "毒石",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_派手すぎる腕輪",
+        "name_jp":  "派手すぎる腕輪",
+        "name_zh_tw":  "過於華麗的手環",
+        "name_zh_cn":  "过于华丽的手环",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_派手で美しい指輪",
+        "name_jp":  "派手で美しい指輪",
+        "name_zh_tw":  "華美的戒指",
+        "name_zh_cn":  "华美的戒指",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_流れの木箱",
+        "name_jp":  "流れの木箱",
+        "name_zh_tw":  "漂流木箱",
+        "name_zh_cn":  "漂流木箱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_海の向こうの古書",
+        "name_jp":  "海の向こうの古書",
+        "name_zh_tw":  "來自海對面的古書",
+        "name_zh_cn":  "来自海对面的古书",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_海星石",
+        "name_jp":  "海星石",
+        "name_zh_tw":  "海星石",
+        "name_zh_cn":  "海星石",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_海獣肉",
+        "name_jp":  "海獣肉",
+        "name_zh_tw":  "海獸肉",
+        "name_zh_cn":  "海兽肉",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_海霊のお守り",
+        "name_jp":  "海霊のお守り",
+        "name_zh_tw":  "海靈護身符",
+        "name_zh_cn":  "海灵护身符",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_淡い色の画材",
+        "name_jp":  "淡い色の画材",
+        "name_zh_tw":  "淺色繪圖材料",
+        "name_zh_cn":  "浅色绘画材料",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_淡麗なガルム",
+        "name_jp":  "淡麗なガルム",
+        "name_zh_tw":  "爽口的魚醬",
+        "name_zh_cn":  "爽口的鱼酱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_清めの剣",
+        "name_jp":  "清めの剣",
+        "name_zh_tw":  "淨化劍",
+        "name_zh_cn":  "净化剑",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_漆闇のグウェン",
+        "name_jp":  "漆闇のグウェン",
+        "name_zh_tw":  "漆闇的戈溫",
+        "name_zh_cn":  "漆暗的戈温",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_漆黒のグウェン",
+        "name_jp":  "漆黒のグウェン",
+        "name_zh_tw":  "漆黑的戈溫",
+        "name_zh_cn":  "漆黑的戈温",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_漆黒の尾羽",
+        "name_jp":  "漆黒の尾羽",
+        "name_zh_tw":  "漆黑的尾羽",
+        "name_zh_cn":  "漆黑的尾羽",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_濃いセルビ",
+        "name_jp":  "濃いセルビ",
+        "name_zh_tw":  "濃雪露必",
+        "name_zh_cn":  "浓雪露必",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_濃厚なガルム",
+        "name_jp":  "濃厚なガルム",
+        "name_zh_tw":  "味道濃厚的魚醬",
+        "name_zh_cn":  "味道浓厚的鱼酱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_火の山のゴーシュ",
+        "name_jp":  "火の山のゴーシュ",
+        "name_zh_tw":  "火之山赤燒",
+        "name_zh_cn":  "火之山赤烧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_無垢なる巨人",
+        "name_jp":  "無垢なる巨人",
+        "name_zh_tw":  "無邪巨人",
+        "name_zh_cn":  "无邪巨人",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_無銘の槍",
+        "name_jp":  "無銘の槍",
+        "name_zh_tw":  "無銘之槍",
+        "name_zh_cn":  "无铭之枪",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_無骨な業物",
+        "name_jp":  "無骨な業物",
+        "name_zh_tw":  "質樸的利器",
+        "name_zh_cn":  "质朴的利器",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_煉獄草",
+        "name_jp":  "煉獄草",
+        "name_zh_tw":  "煉獄草",
+        "name_zh_cn":  "炼狱草",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_熟成ゴーシュ",
+        "name_jp":  "熟成ゴーシュ",
+        "name_zh_tw":  "陳釀赤燒",
+        "name_zh_cn":  "陈酿赤烧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_熟成ソウシュ",
+        "name_jp":  "熟成ソウシュ",
+        "name_zh_tw":  "陳釀蒼燒",
+        "name_zh_cn":  "陈酿苍烧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_熟成干しセルビ",
+        "name_jp":  "熟成干しセルビ",
+        "name_zh_tw":  "熟成雪露必乾",
+        "name_zh_cn":  "熟成雪露必干",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_特効薬",
+        "name_jp":  "特効薬",
+        "name_zh_tw":  "特效藥",
+        "name_zh_cn":  "特效药",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_狩人の指輪",
+        "name_jp":  "狩人の指輪",
+        "name_zh_tw":  "獵人戒指",
+        "name_zh_cn":  "猎人戒指",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_獣狩りの弓",
+        "name_jp":  "獣狩りの弓",
+        "name_zh_tw":  "獵獸弓",
+        "name_zh_cn":  "猎兽弓",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_獣肉と砂虫の珍味",
+        "name_jp":  "獣肉と砂虫の珍味",
+        "name_zh_tw":  "獸肉與沙蟲的珍饈",
+        "name_zh_cn":  "兽肉与沙虫的珍馐",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_玉鋼",
+        "name_jp":  "玉鋼",
+        "name_zh_tw":  "玉鋼",
+        "name_zh_cn":  "玉钢",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_珍しい香辛料",
+        "name_jp":  "珍しい香辛料",
+        "name_zh_tw":  "稀有的香料",
+        "name_zh_cn":  "稀有的香料",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_球根の酢漬け",
+        "name_jp":  "球根の酢漬け",
+        "name_zh_tw":  "醋漬球根",
+        "name_zh_cn":  "醋渍球根",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_甘いお菓子の小箱",
+        "name_jp":  "甘いお菓子の小箱",
+        "name_zh_tw":  "一小盒甜點",
+        "name_zh_cn":  "一小盒甜点",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_異邦の分厚い書物",
+        "name_jp":  "異邦の分厚い書物",
+        "name_zh_tw":  "厚重的異國書籍",
+        "name_zh_cn":  "厚重的异国书籍",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_疾風の剣",
+        "name_jp":  "疾風の剣",
+        "name_zh_tw":  "疾風劍",
+        "name_zh_cn":  "疾风剑",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_疾風の指輪",
+        "name_jp":  "疾風の指輪",
+        "name_zh_tw":  "疾風戒指",
+        "name_zh_cn":  "疾风戒指",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_癒しの杖",
+        "name_jp":  "癒しの杖",
+        "name_zh_tw":  "治癒之杖",
+        "name_zh_cn":  "治愈之杖",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_白羽のお守り",
+        "name_jp":  "白羽のお守り",
+        "name_zh_tw":  "白羽護身符",
+        "name_zh_cn":  "白羽护身符",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_百薬の雫",
+        "name_jp":  "百薬の雫",
+        "name_zh_tw":  "百藥之萃",
+        "name_zh_cn":  "百药之萃",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_盾たちの肖像画",
+        "name_jp":  "盾たちの肖像画",
+        "name_zh_tw":  "「盾」的肖像畫",
+        "name_zh_cn":  "“盾”的肖像画",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_真紅のゴーシュ",
+        "name_jp":  "真紅のゴーシュ",
+        "name_zh_tw":  "鮮紅赤燒",
+        "name_zh_cn":  "鲜红赤烧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_真紅の牛の像",
+        "name_jp":  "真紅の牛の像",
+        "name_zh_tw":  "深紅色牛雕像",
+        "name_zh_cn":  "深红色牛雕像",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_真紅の薔薇の花束",
+        "name_jp":  "真紅の薔薇の花束",
+        "name_zh_tw":  "深紅薔薇花束",
+        "name_zh_cn":  "深红蔷薇花束",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_矢じりの形の宝石",
+        "name_jp":  "矢じりの形の宝石",
+        "name_zh_tw":  "箭頭形的寶石",
+        "name_zh_cn":  "箭头形的宝石",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_砂嵐の大隊",
+        "name_jp":  "砂嵐の大隊",
+        "name_zh_tw":  "沙暴大隊",
+        "name_zh_cn":  "沙暴大队",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_砂漠で見つけた物",
+        "name_jp":  "砂漠で見つけた物",
+        "name_zh_tw":  "沙漠中發現的東西",
+        "name_zh_cn":  "沙漠中发现的东西",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_砂漠の太陽石",
+        "name_jp":  "砂漠の太陽石",
+        "name_zh_tw":  "沙漠太陽石",
+        "name_zh_cn":  "沙漠太阳石",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_砂虫肉",
+        "name_jp":  "砂虫肉",
+        "name_zh_tw":  "沙蟲肉",
+        "name_zh_cn":  "沙虫肉",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_砂金",
+        "name_jp":  "砂金",
+        "name_zh_tw":  "沙金",
+        "name_zh_cn":  "沙金",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_硝子の車輪",
+        "name_jp":  "硝子の車輪",
+        "name_zh_tw":  "玻璃車輪",
+        "name_zh_cn":  "玻璃车轮",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_碧き心臓",
+        "name_jp":  "碧き心臓",
+        "name_zh_tw":  "藍色心臟",
+        "name_zh_cn":  "蓝色心脏",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_祝勝の宝珠",
+        "name_jp":  "祝勝の宝珠",
+        "name_zh_tw":  "祝勝寶珠",
+        "name_zh_cn":  "祝胜宝珠",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_祝品箱",
+        "name_jp":  "祝品箱",
+        "name_zh_tw":  "禮品箱",
+        "name_zh_cn":  "礼品箱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_神鉄の鞍",
+        "name_jp":  "神鉄の鞍",
+        "name_zh_tw":  "神鐵之鞍",
+        "name_zh_cn":  "神铁之鞍",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_秘伝のゴーシュ",
+        "name_jp":  "秘伝のゴーシュ",
+        "name_zh_tw":  "秘傳赤燒",
+        "name_zh_cn":  "秘传赤烧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_秘伝の書",
+        "name_jp":  "秘伝の書",
+        "name_zh_tw":  "秘傳之書",
+        "name_zh_cn":  "秘传之书",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_秘蔵の書箱",
+        "name_jp":  "秘蔵の書箱",
+        "name_zh_tw":  "秘藏的書箱",
+        "name_zh_cn":  "秘藏的书箱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_竜鱗のお守り",
+        "name_jp":  "竜鱗のお守り",
+        "name_zh_tw":  "龍鱗護身符",
+        "name_zh_cn":  "龙鳞护身符",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_簡単な手品道具",
+        "name_jp":  "簡単な手品道具",
+        "name_zh_tw":  "簡易魔術道具",
+        "name_zh_cn":  "简易魔术道具",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_籠手殺しの護符",
+        "name_jp":  "籠手殺しの護符",
+        "name_zh_tw":  "破手甲者護符",
+        "name_zh_cn":  "破手甲者护符",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_精霊の宝珠",
+        "name_jp":  "精霊の宝珠",
+        "name_zh_tw":  "精靈寶珠",
+        "name_zh_cn":  "精灵宝珠",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_精霊の盤上遊戯",
+        "name_jp":  "精霊の盤上遊戯",
+        "name_zh_tw":  "精靈桌上遊戲",
+        "name_zh_cn":  "精灵桌上游戏",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_精霊の粉",
+        "name_jp":  "精霊の粉",
+        "name_zh_tw":  "精靈之粉",
+        "name_zh_cn":  "精灵之粉",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_精霊の護人形",
+        "name_jp":  "精霊の護人形",
+        "name_zh_tw":  "精靈護身人偶",
+        "name_zh_cn":  "精灵护身人偶",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_純白のセルビ",
+        "name_jp":  "純白のセルビ",
+        "name_zh_tw":  "純白的雪露必",
+        "name_zh_cn":  "纯白的雪露必",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_素朴なゴーシュ",
+        "name_jp":  "素朴なゴーシュ",
+        "name_zh_tw":  "樸素的赤燒",
+        "name_zh_cn":  "朴素的赤烧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_素朴な焼き菓子",
+        "name_jp":  "素朴な焼き菓子",
+        "name_zh_tw":  "樸素的烤點心",
+        "name_zh_cn":  "朴素的烤点心",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_絶風の宝珠",
+        "name_jp":  "絶風の宝珠",
+        "name_zh_tw":  "絕風寶珠",
+        "name_zh_cn":  "绝风宝珠",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_緋灼の雫",
+        "name_jp":  "緋灼の雫",
+        "name_zh_tw":  "緋灼之萃",
+        "name_zh_cn":  "绯灼之萃",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_繊細な氷砂糖",
+        "name_jp":  "繊細な氷砂糖",
+        "name_zh_tw":  "細冰糖",
+        "name_zh_cn":  "细冰糖",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_羅刹女の徹扇",
+        "name_jp":  "羅刹女の徹扇",
+        "name_zh_tw":  "羅剎女的徹扇",
+        "name_zh_cn":  "罗刹女的彻扇",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_羅刹女の闇徹扇",
+        "name_jp":  "羅刹女の闇徹扇",
+        "name_zh_tw":  "羅剎女的闇徹扇",
+        "name_zh_cn":  "罗刹女的暗彻扇",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_美しい飾り矢",
+        "name_jp":  "美しい飾り矢",
+        "name_zh_tw":  "精美的裝飾用箭",
+        "name_zh_cn":  "精美的装饰用箭",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_翠嵐の宝珠",
+        "name_jp":  "翠嵐の宝珠",
+        "name_zh_tw":  "翠嵐寶珠",
+        "name_zh_cn":  "翠岚宝珠",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_翡翠色のゴーシュ",
+        "name_jp":  "翡翠色のゴーシュ",
+        "name_zh_tw":  "翡翠色赤燒",
+        "name_zh_cn":  "翡翠色赤烧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_翡翠色の豹の像",
+        "name_jp":  "翡翠色の豹の像",
+        "name_zh_tw":  "翡翠色豹雕像",
+        "name_zh_cn":  "翡翠色豹雕像",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_聖槍アッサル",
+        "name_jp":  "聖槍アッサル",
+        "name_zh_tw":  "聖槍阿薩勒",
+        "name_zh_cn":  "圣枪阿萨勒",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_聖水",
+        "name_jp":  "聖水",
+        "name_zh_tw":  "聖水",
+        "name_zh_cn":  "圣水",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_肉箱",
+        "name_jp":  "肉箱",
+        "name_zh_tw":  "肉箱",
+        "name_zh_cn":  "肉箱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_至福なる舌",
+        "name_jp":  "至福なる舌",
+        "name_zh_tw":  "至福之舌",
+        "name_zh_cn":  "至福之舌",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_船長の心核",
+        "name_jp":  "船長の心核",
+        "name_zh_tw":  "艦長的心核",
+        "name_zh_cn":  "船长的心核",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_良質な武具箱",
+        "name_jp":  "良質な武具箱",
+        "name_zh_tw":  "優良武具箱",
+        "name_zh_cn":  "优良武具箱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_芳醇なソウシュ",
+        "name_jp":  "芳醇なソウシュ",
+        "name_zh_tw":  "香醇的蒼燒",
+        "name_zh_cn":  "香醇的苍烧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_若いゴーシュ",
+        "name_jp":  "若いゴーシュ",
+        "name_zh_tw":  "新釀赤燒",
+        "name_zh_cn":  "新酿赤烧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_若いソウシュ",
+        "name_jp":  "若いソウシュ",
+        "name_zh_tw":  "新釀蒼燒",
+        "name_zh_cn":  "新酿苍烧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_苦悶の盾",
+        "name_jp":  "苦悶の盾",
+        "name_zh_tw":  "苦悶之盾",
+        "name_zh_cn":  "苦闷之盾",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_菫色のブローチ",
+        "name_jp":  "菫色のブローチ",
+        "name_zh_tw":  "堇紫色胸針",
+        "name_zh_cn":  "菫紫色胸针",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_蒼い薔薇の花束",
+        "name_jp":  "蒼い薔薇の花束",
+        "name_zh_tw":  "藍薔薇花束",
+        "name_zh_cn":  "蓝蔷薇花束",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_蒼空のソウシュ",
+        "name_jp":  "蒼空のソウシュ",
+        "name_zh_tw":  "蒼空蒼燒",
+        "name_zh_cn":  "苍空苍烧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_薄いセルビ",
+        "name_jp":  "薄いセルビ",
+        "name_zh_tw":  "淡雪露必",
+        "name_zh_cn":  "淡雪露必",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_薬草料理大全",
+        "name_jp":  "薬草料理大全",
+        "name_zh_tw":  "藥草料理大全",
+        "name_zh_cn":  "药草料理大全",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_虫真珠",
+        "name_jp":  "虫真珠",
+        "name_zh_tw":  "蟲珍珠",
+        "name_zh_cn":  "虫珍珠",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_蜂蜜入りの乳",
+        "name_jp":  "蜂蜜入りの乳",
+        "name_zh_tw":  "加了蜂蜜的奶",
+        "name_zh_cn":  "加了蜂蜜的奶",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_蜂蜜入り焼き菓子",
+        "name_jp":  "蜂蜜入り焼き菓子",
+        "name_zh_tw":  "加了蜂蜜的烤點心",
+        "name_zh_cn":  "加了蜂蜜的烤点心",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_裁きの剣",
+        "name_jp":  "裁きの剣",
+        "name_zh_tw":  "裁決之劍",
+        "name_zh_cn":  "裁决之剑",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_裁きの天秤",
+        "name_jp":  "裁きの天秤",
+        "name_zh_tw":  "裁決天秤",
+        "name_zh_cn":  "裁决天秤",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_詩人の碑の写し",
+        "name_jp":  "詩人の碑の写し",
+        "name_zh_tw":  "詩人碑的抄本",
+        "name_zh_cn":  "诗人碑的抄本",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_調合薬",
+        "name_jp":  "調合薬",
+        "name_zh_tw":  "混合藥",
+        "name_zh_cn":  "混合药",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_謎の箱",
+        "name_jp":  "謎の箱",
+        "name_zh_tw":  "神秘箱",
+        "name_zh_cn":  "神秘箱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_貿易取引入門",
+        "name_jp":  "貿易取引入門",
+        "name_zh_tw":  "商貿入門",
+        "name_zh_cn":  "商贸入门",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_質素な武具箱",
+        "name_jp":  "質素な武具箱",
+        "name_zh_tw":  "簡樸武具箱",
+        "name_zh_cn":  "简朴武具箱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_贈り物の箱",
+        "name_jp":  "贈り物の箱",
+        "name_zh_tw":  "裝有禮物的盒子",
+        "name_zh_cn":  "装有礼物的盒子",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_赤い宝石",
+        "name_jp":  "赤い宝石",
+        "name_zh_tw":  "赤紅寶石",
+        "name_zh_cn":  "赤红宝石",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_赤き斧",
+        "name_jp":  "赤き斧",
+        "name_zh_tw":  "赤紅斧",
+        "name_zh_cn":  "赤红斧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_赤き斧の呪詛",
+        "name_jp":  "赤き斧の呪詛",
+        "name_zh_tw":  "赤紅斧的詛咒",
+        "name_zh_cn":  "赤红斧的诅咒",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_赤き闇斧",
+        "name_jp":  "赤き闇斧",
+        "name_zh_tw":  "赤紅闇斧",
+        "name_zh_cn":  "赤红暗斧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_赤羽のお守り",
+        "name_jp":  "赤羽のお守り",
+        "name_zh_tw":  "紅羽護身符",
+        "name_zh_cn":  "红羽护身符",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_赤翼のお守り",
+        "name_jp":  "赤翼のお守り",
+        "name_zh_tw":  "紅翼護身符",
+        "name_zh_cn":  "红翼护身符",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_赤鱗のお守り",
+        "name_jp":  "赤鱗のお守り",
+        "name_zh_tw":  "紅鱗護身符",
+        "name_zh_cn":  "红鳞护身符",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_踏みならし",
+        "name_jp":  "踏みならし",
+        "name_zh_tw":  "踩踏",
+        "name_zh_cn":  "踩踏",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_身躱しの籠手",
+        "name_jp":  "身躱しの籠手",
+        "name_zh_tw":  "閃身手甲",
+        "name_zh_cn":  "闪身手甲",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_軍略書の写本",
+        "name_jp":  "軍略書の写本",
+        "name_zh_tw":  "戰術書的抄本",
+        "name_zh_cn":  "战术书的抄本",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_転生の蓮華",
+        "name_jp":  "転生の蓮華",
+        "name_zh_tw":  "轉世蓮華",
+        "name_zh_cn":  "转世莲华",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_軽妙なソウシュ",
+        "name_jp":  "軽妙なソウシュ",
+        "name_zh_tw":  "清爽的蒼燒",
+        "name_zh_cn":  "清爽的苍烧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_轟炎の宝珠",
+        "name_jp":  "轟炎の宝珠",
+        "name_zh_tw":  "轟炎寶珠",
+        "name_zh_cn":  "轰炎宝珠",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_迅雷の宝珠",
+        "name_jp":  "迅雷の宝珠",
+        "name_zh_tw":  "迅雷寶珠",
+        "name_zh_cn":  "迅雷宝珠",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_追撃の宝珠",
+        "name_jp":  "追撃の宝珠",
+        "name_zh_tw":  "追擊寶珠",
+        "name_zh_cn":  "追击宝珠",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_連携の大玉",
+        "name_jp":  "連携の大玉",
+        "name_zh_tw":  "連攜大玉",
+        "name_zh_cn":  "连携大玉",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_連携の石",
+        "name_jp":  "連携の石",
+        "name_zh_tw":  "連攜石",
+        "name_zh_cn":  "连携石",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_邪剣エンジュラ",
+        "name_jp":  "邪剣エンジュラ",
+        "name_zh_tw":  "邪劍怨誅拉",
+        "name_zh_cn":  "邪剑怨诛拉",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_邪剣フラガラッハ",
+        "name_jp":  "邪剣フラガラッハ",
+        "name_zh_tw":  "邪劍佛拉格拉赫",
+        "name_zh_cn":  "邪剑佛拉格拉赫",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_邪剣ヴェロキネ",
+        "name_jp":  "邪剣ヴェロキネ",
+        "name_zh_tw":  "邪劍維羅齊涅",
+        "name_zh_cn":  "邪剑维罗齐涅",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_邪斧ガンドギャ",
+        "name_jp":  "邪斧ガンドギャ",
+        "name_zh_tw":  "邪斧干多迦",
+        "name_zh_cn":  "邪斧干多迦",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_邪槍ハノーア",
+        "name_jp":  "邪槍ハノーア",
+        "name_zh_tw":  "邪槍哈諾亞",
+        "name_zh_cn":  "邪枪哈诺亚",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_邪槍ムーエン",
+        "name_jp":  "邪槍ムーエン",
+        "name_zh_tw":  "邪槍姆恩",
+        "name_zh_cn":  "邪枪姆恩",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_邪甲ガゼリア",
+        "name_jp":  "邪甲ガゼリア",
+        "name_zh_tw":  "邪甲戈澤里亞",
+        "name_zh_cn":  "邪甲戈泽里亚",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_邪甲ドンデボック",
+        "name_jp":  "邪甲ドンデボック",
+        "name_zh_tw":  "邪甲東提柏克",
+        "name_zh_cn":  "邪甲东提柏克",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_野外調理道具",
+        "name_jp":  "野外調理道具",
+        "name_zh_tw":  "野外用廚具",
+        "name_zh_cn":  "野外用厨具",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_野菜の瓶漬け",
+        "name_jp":  "野菜の瓶漬け",
+        "name_zh_tw":  "瓶裝醃菜",
+        "name_zh_cn":  "瓶装腌菜",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_野菜の鉢植え",
+        "name_jp":  "野菜の鉢植え",
+        "name_zh_tw":  "蔬菜盆栽",
+        "name_zh_cn":  "蔬菜盆栽",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_野菜箱",
+        "name_jp":  "野菜箱",
+        "name_zh_tw":  "蔬菜箱",
+        "name_zh_cn":  "蔬菜箱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_金塊",
+        "name_jp":  "金塊",
+        "name_zh_tw":  "金塊",
+        "name_zh_cn":  "金块",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_鉄の剣",
+        "name_jp":  "鉄の剣",
+        "name_zh_tw":  "鐵劍",
+        "name_zh_cn":  "铁剑",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_鉄の弓",
+        "name_jp":  "鉄の弓",
+        "name_zh_tw":  "鐵弓",
+        "name_zh_cn":  "铁弓",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_鉄の斧",
+        "name_jp":  "鉄の斧",
+        "name_zh_tw":  "鐵斧",
+        "name_zh_cn":  "铁斧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_鉄の槍",
+        "name_jp":  "鉄の槍",
+        "name_zh_tw":  "鐵槍",
+        "name_zh_cn":  "铁枪",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_鉄の盾",
+        "name_jp":  "鉄の盾",
+        "name_zh_tw":  "鐵盾",
+        "name_zh_cn":  "铁盾",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_鉄の籠手",
+        "name_jp":  "鉄の籠手",
+        "name_zh_tw":  "鐵手甲",
+        "name_zh_cn":  "铁手甲",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_鉱石箱",
+        "name_jp":  "鉱石箱",
+        "name_zh_tw":  "礦石箱",
+        "name_zh_cn":  "矿石箱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_銀の剣",
+        "name_jp":  "銀の剣",
+        "name_zh_tw":  "銀劍",
+        "name_zh_cn":  "银剑",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_銀の弓",
+        "name_jp":  "銀の弓",
+        "name_zh_tw":  "銀弓",
+        "name_zh_cn":  "银弓",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_銀の斧",
+        "name_jp":  "銀の斧",
+        "name_zh_tw":  "銀斧",
+        "name_zh_cn":  "银斧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_銀の槍",
+        "name_jp":  "銀の槍",
+        "name_zh_tw":  "銀槍",
+        "name_zh_cn":  "银枪",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_銀の盾",
+        "name_jp":  "銀の盾",
+        "name_zh_tw":  "銀盾",
+        "name_zh_cn":  "银盾",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_銀の籠手",
+        "name_jp":  "銀の籠手",
+        "name_zh_tw":  "銀手甲",
+        "name_zh_cn":  "银手甲",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_鋭い釣り針",
+        "name_jp":  "鋭い釣り針",
+        "name_zh_tw":  "尖銳的魚鉤",
+        "name_zh_cn":  "尖锐的鱼钩",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_鋭く小さな短剣",
+        "name_jp":  "鋭く小さな短剣",
+        "name_zh_tw":  "鋒利的小短劍",
+        "name_zh_cn":  "锋利的小短剑",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_錬成石",
+        "name_jp":  "錬成石",
+        "name_zh_tw":  "鍛造石",
+        "name_zh_cn":  "锻造石",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_鍛錬用の石柱",
+        "name_jp":  "鍛錬用の石柱",
+        "name_zh_tw":  "鍛鍊用石柱",
+        "name_zh_cn":  "锻炼用石柱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_鍛錬用の装飾腕輪",
+        "name_jp":  "鍛錬用の装飾腕輪",
+        "name_zh_tw":  "鍛鍊用裝飾手環",
+        "name_zh_cn":  "锻炼用装饰手环",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_関節保護用長手袋",
+        "name_jp":  "関節保護用長手袋",
+        "name_zh_tw":  "關節保護用長手套",
+        "name_zh_cn":  "关节保护用长手套",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_闇の七星核",
+        "name_jp":  "闇の七星核",
+        "name_zh_tw":  "闇七星核",
+        "name_zh_cn":  "暗七星核",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_闇の結晶",
+        "name_jp":  "闇の結晶",
+        "name_zh_tw":  "闇之結晶",
+        "name_zh_cn":  "暗之结晶",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_闇剣エンジュラ",
+        "name_jp":  "闇剣エンジュラ",
+        "name_zh_tw":  "闇劍怨誅拉",
+        "name_zh_cn":  "暗剑怨诛拉",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_闇剣フラガラッハ",
+        "name_jp":  "闇剣フラガラッハ",
+        "name_zh_tw":  "闇劍佛拉格拉赫",
+        "name_zh_cn":  "暗剑佛拉格拉赫",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_闇弦・月白",
+        "name_jp":  "闇弦・月白",
+        "name_zh_tw":  "闇弦‧月白",
+        "name_zh_cn":  "暗弦·月白",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_闇弦・黒曜",
+        "name_jp":  "闇弦・黒曜",
+        "name_zh_tw":  "闇弦‧黑曜",
+        "name_zh_cn":  "暗弦·黑曜",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_闇槍ヴェンデッタ",
+        "name_jp":  "闇槍ヴェンデッタ",
+        "name_zh_tw":  "闇槍溫德塔",
+        "name_zh_cn":  "暗枪温德塔",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_闇甲ガゼリア",
+        "name_jp":  "闇甲ガゼリア",
+        "name_zh_tw":  "闇甲戈澤里亞",
+        "name_zh_cn":  "暗甲戈泽里亚",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_闇甲ドンデボック",
+        "name_jp":  "闇甲ドンデボック",
+        "name_zh_tw":  "闇甲東提柏克",
+        "name_zh_cn":  "暗甲东提柏克",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_闇糸グレイプニル",
+        "name_jp":  "闇糸グレイプニル",
+        "name_zh_tw":  "闇線格萊普尼爾",
+        "name_zh_cn":  "暗线格莱普尼尔",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_闇赤の宝石",
+        "name_jp":  "闇赤の宝石",
+        "name_zh_tw":  "闇紅寶石",
+        "name_zh_cn":  "暗红宝石",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_闘技場物語の写本",
+        "name_jp":  "闘技場物語の写本",
+        "name_zh_tw":  "鬥技場故事的抄本",
+        "name_zh_cn":  "斗技场故事的抄本",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_陽炎の勲章",
+        "name_jp":  "陽炎の勲章",
+        "name_zh_tw":  "陽炎的勳章",
+        "name_zh_cn":  "阳炎的勋章",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_雷石",
+        "name_jp":  "雷石",
+        "name_zh_tw":  "雷石",
+        "name_zh_cn":  "雷石",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_青銅の剣",
+        "name_jp":  "青銅の剣",
+        "name_zh_tw":  "青銅劍",
+        "name_zh_cn":  "青铜剑",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_青銅の弓",
+        "name_jp":  "青銅の弓",
+        "name_zh_tw":  "青銅弓",
+        "name_zh_cn":  "青铜弓",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_青銅の斧",
+        "name_jp":  "青銅の斧",
+        "name_zh_tw":  "青銅斧",
+        "name_zh_cn":  "青铜斧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_青銅の槍",
+        "name_jp":  "青銅の槍",
+        "name_zh_tw":  "青銅槍",
+        "name_zh_cn":  "青铜枪",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_青銅の盾",
+        "name_jp":  "青銅の盾",
+        "name_zh_tw":  "青銅盾",
+        "name_zh_cn":  "青铜盾",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_青銅の籠手",
+        "name_jp":  "青銅の籠手",
+        "name_zh_tw":  "青銅手甲",
+        "name_zh_cn":  "青铜手甲",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_風の弓",
+        "name_jp":  "風の弓",
+        "name_zh_tw":  "風弓",
+        "name_zh_cn":  "风弓",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_風呼びの靴",
+        "name_jp":  "風呼びの靴",
+        "name_zh_tw":  "喚風之靴",
+        "name_zh_cn":  "唤风之靴",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_風来の宝珠",
+        "name_jp":  "風来の宝珠",
+        "name_zh_tw":  "風來寶珠",
+        "name_zh_cn":  "风来宝珠",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_風火輪",
+        "name_jp":  "風火輪",
+        "name_zh_tw":  "風火輪",
+        "name_zh_cn":  "风火轮",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_風石",
+        "name_jp":  "風石",
+        "name_zh_tw":  "風石",
+        "name_zh_cn":  "风石",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_風裂きの矢羽根",
+        "name_jp":  "風裂きの矢羽根",
+        "name_zh_tw":  "裂風箭羽",
+        "name_zh_cn":  "裂风箭羽",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_香ばしい焼き菓子",
+        "name_jp":  "香ばしい焼き菓子",
+        "name_zh_tw":  "香噴噴的烤點心",
+        "name_zh_cn":  "香喷喷的烤点心",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_馬のお手入れ道具",
+        "name_jp":  "馬のお手入れ道具",
+        "name_zh_tw":  "馬匹保養工具",
+        "name_zh_cn":  "马匹保养工具",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_馬のフン",
+        "name_jp":  "馬のフン",
+        "name_zh_tw":  "馬糞",
+        "name_zh_cn":  "马粪",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_馬殺しの弓",
+        "name_jp":  "馬殺しの弓",
+        "name_zh_tw":  "屠馬弓",
+        "name_zh_cn":  "屠马弓",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_骨董の戦功章",
+        "name_jp":  "骨董の戦功章",
+        "name_zh_tw":  "古董戰功勳章",
+        "name_zh_cn":  "古董战功勋章",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_高級な武具箱",
+        "name_jp":  "高級な武具箱",
+        "name_zh_tw":  "高級武具箱",
+        "name_zh_cn":  "高级武具箱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_高級八卦占い道具",
+        "name_jp":  "高級八卦占い道具",
+        "name_zh_tw":  "高級八卦占卜道具",
+        "name_zh_cn":  "高级八卦占卜道具",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_高級肉箱",
+        "name_jp":  "高級肉箱",
+        "name_zh_tw":  "高級肉箱",
+        "name_zh_cn":  "高级肉箱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_高級野菜箱",
+        "name_jp":  "高級野菜箱",
+        "name_zh_tw":  "高級蔬菜箱",
+        "name_zh_cn":  "高级蔬菜箱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_高級魚箱",
+        "name_jp":  "高級魚箱",
+        "name_zh_tw":  "高級魚箱",
+        "name_zh_cn":  "高级鱼箱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_鬣飾り",
+        "name_jp":  "鬣飾り",
+        "name_zh_tw":  "鬃毛飾品",
+        "name_zh_cn":  "鬃毛饰品",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_鬼面の闇髑髏",
+        "name_jp":  "鬼面の闇髑髏",
+        "name_zh_tw":  "鬼面闇骷髏",
+        "name_zh_cn":  "鬼面暗骷髅",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_鬼面の髑髏",
+        "name_jp":  "鬼面の髑髏",
+        "name_zh_tw":  "鬼面骷髏",
+        "name_zh_cn":  "鬼面骷髅",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_魂の結晶",
+        "name_jp":  "魂の結晶",
+        "name_zh_tw":  "魂之結晶",
+        "name_zh_cn":  "魂之结晶",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_魔封じの盾",
+        "name_jp":  "魔封じの盾",
+        "name_zh_tw":  "封魔盾",
+        "name_zh_cn":  "封魔盾",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_魔毒の骨鎖",
+        "name_jp":  "魔毒の骨鎖",
+        "name_zh_tw":  "魔毒骨鎖",
+        "name_zh_cn":  "魔毒骨锁",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_魔羽のお守り",
+        "name_jp":  "魔羽のお守り",
+        "name_zh_tw":  "魔羽護身符",
+        "name_zh_cn":  "魔羽护身符",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_魔除け",
+        "name_jp":  "魔除け",
+        "name_zh_tw":  "避邪物",
+        "name_zh_cn":  "辟邪物",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_魔除けの盾",
+        "name_jp":  "魔除けの盾",
+        "name_zh_tw":  "除魔盾",
+        "name_zh_cn":  "除魔盾",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_魔響石",
+        "name_jp":  "魔響石",
+        "name_zh_tw":  "魔響石",
+        "name_zh_cn":  "魔响石",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_魔響石・大",
+        "name_jp":  "魔響石・大",
+        "name_zh_tw":  "魔響石‧大",
+        "name_zh_cn":  "魔响石·大",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_魚の内臓の塩漬け",
+        "name_jp":  "魚の内臓の塩漬け",
+        "name_zh_tw":  "鹽漬魚內臟",
+        "name_zh_cn":  "盐渍鱼内脏",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_魚箱",
+        "name_jp":  "魚箱",
+        "name_zh_tw":  "魚箱",
+        "name_zh_cn":  "鱼箱",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_鷹爪斧",
+        "name_jp":  "鷹爪斧",
+        "name_zh_tw":  "鷹爪斧",
+        "name_zh_cn":  "鹰爪斧",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_黄金の兜",
+        "name_jp":  "黄金の兜",
+        "name_zh_tw":  "黃金頭盔",
+        "name_zh_cn":  "黄金头盔",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_黒檀の盤上遊戯",
+        "name_jp":  "黒檀の盤上遊戯",
+        "name_zh_tw":  "黑檀製桌上遊戲",
+        "name_zh_cn":  "黑檀制桌上游戏",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_黒真珠",
+        "name_jp":  "黒真珠",
+        "name_zh_tw":  "黑珍珠",
+        "name_zh_cn":  "黑珍珠",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_黒羽のお守り",
+        "name_jp":  "黒羽のお守り",
+        "name_zh_tw":  "黑羽護身符",
+        "name_zh_cn":  "黑羽护身符",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_黒翼のお守り",
+        "name_jp":  "黒翼のお守り",
+        "name_zh_tw":  "黑翼護身符",
+        "name_zh_cn":  "黑翼护身符",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_黒鱗のお守り",
+        "name_jp":  "黒鱗のお守り",
+        "name_zh_tw":  "黑鱗護身符",
+        "name_zh_cn":  "黑鳞护身符",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_鼻撃",
+        "name_jp":  "鼻撃",
+        "name_zh_tw":  "鼻擊",
+        "name_zh_cn":  "鼻击",
+        "grantability":  "unverified"
+    },
+    {
+        "iid":  "IID_？？？の身体",
+        "name_jp":  "？？？の身体",
+        "name_zh_tw":  "？？？之軀",
+        "name_zh_cn":  "？？？之躯",
+        "grantability":  "unverified"
+    }
+]
