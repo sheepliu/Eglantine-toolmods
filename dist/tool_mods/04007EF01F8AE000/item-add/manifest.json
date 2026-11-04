@@ -1,0 +1,27 @@
+{
+  "manifest_version": 1,
+  "api_version": 1,
+  "id": "item-add",
+  "name": "Item Add Runtime",
+  "version": "0.3.0",
+  "catalog": "items.json",
+  "runtime": "python",
+  "entrypoint": "itemadd_gdb.py",
+  "entrypoint_args": [
+    "-X",
+    "utf8",
+    "{entrypoint}",
+    "--mode",
+    "commit",
+    "--iid",
+    "{iid}",
+    "--quantity",
+    "{quantity}",
+    "--wait",
+    "180",
+    "--skip-local-main-check",
+    "--report-dir",
+    "{package_dir}\\reports"
+  ],
+  "capabilities": ["inventory.add", "guest.gdb"]
+}

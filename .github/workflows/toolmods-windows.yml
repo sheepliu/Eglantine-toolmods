@@ -1,0 +1,116 @@
+name: toolmods-windows
+
+on:
+  push:
+    branches:
+      - 'toolmods/**'
+    paths:
+      - 'src/**'
+      - 'CMakeLists.txt'
+      - 'CMakeModules/**'
+      - 'externals/**'
+      - 'dist/tool_mods/**'
+      - '.github/workflows/toolmods-windows.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: toolmods-windows-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Set up MSVC
+        uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: '6.8.3'
+          host: windows
+          target: desktop
+          arch: win64_msvc2022_64
+          modules: qtcharts
+          cache: true
+
+      - name: Install sccache
+        shell: pwsh
+        run: |
+          $zip = Join-Path $env:RUNNER_TEMP 'sccache.zip'
+          Invoke-WebRequest -OutFile $zip https://github.com/mozilla/sccache/releases/download/v0.19.0/sccache-v0.19.0-x86_64-pc-windows-msvc.zip
+          Expand-Archive $zip -DestinationPath (Join-Path $env:RUNNER_TEMP 'sccache')
+          $bin = (Get-ChildItem -Recurse -Filter sccache.exe (Join-Path $env:RUNNER_TEMP 'sccache')).DirectoryName
+          $bin | Out-File -Append -Encoding utf8 $env:GITHUB_PATH
+
+      - name: Install Vulkan SDK
+        shell: pwsh
+        run: ./tools/windows/install-vulkan-sdk.ps1
+
+      - name: Configure
+        shell: bash
+        run: >-
+          cmake -S . -B build/toolmods -G Ninja
+          -DCMAKE_BUILD_TYPE=Release
+          -DBUILD_TESTING=OFF
+          -DYUZU_TESTS=OFF
+          -DYUZU_CMD=ON
+          -DYUZU_ROOM=OFF
+          -DYUZU_ROOM_STANDALONE=OFF
+          -DYUZU_USE_BUNDLED_QT=OFF
+          -DYUZU_USE_BUNDLED_SDL3=ON
+          -DENABLE_UPDATE_CHECKER=OFF
+          -DUSE_DISCORD_PRESENCE=OFF
+          -DCMAKE_C_COMPILER_LAUNCHER=sccache
+          -DCMAKE_CXX_COMPILER_LAUNCHER=sccache
+
+      - name: Build
+        shell: bash
+        run: cmake --build build/toolmods --target yuzu yuzu-cmd --parallel
+
+      - name: Verify package
+        shell: pwsh
+        run: |
+          $required = @(
+            'dist/tool_mods/04007EF01F8AE000/item-add/manifest.json',
+            'dist/tool_mods/04007EF01F8AE000/item-add/items.json',
+            'dist/tool_mods/04007EF01F8AE000/item-add/itemadd_gdb.py',
+            'dist/tool_mods/04007EF01F8AE000/item-add/README.md'
+          )
+          foreach ($path in $required) { if (!(Test-Path -LiteralPath $path)) { throw "Missing package file: $path" } }
+          $manifest = Get-Content -Raw -LiteralPath $required[0] | ConvertFrom-Json
+          if ($manifest.id -ne 'item-add' -or $manifest.api_version -ne 1) { throw 'Invalid ItemAdd manifest' }
+          $items = Get-Content -Raw -LiteralPath $required[1] | ConvertFrom-Json
+          if ($items.Count -ne 580) { throw "Unexpected catalog count: $($items.Count)" }
+          if (($items | Where-Object { [string]::IsNullOrWhiteSpace($_.name_zh_cn) }).Count -ne 0) { throw 'Simplified Chinese catalog field is incomplete' }
+
+      - name: Package artifact
+        shell: pwsh
+        run: |
+          $sha = (git rev-parse HEAD).Trim()
+          $version = [ordered]@{
+            upstream_commit = $sha
+            toolmods_revision = '1'
+            game_title_id = '04007EF01F8AE000'
+            main_sha256 = '616e7d906936ea4c2d908d0553cf69779e60242d769c40722267ee8bcb98e79a'
+          }
+          $version | ConvertTo-Json | Set-Content -Encoding utf8 dist/VERSION.json
+          New-Item -ItemType Directory -Force artifact | Out-Null
+          Copy-Item build/toolmods/bin/eglantine.exe artifact/eglantine.exe
+          Copy-Item dist/tool_mods artifact/tool_mods -Recurse
+          Copy-Item dist/VERSION.json artifact/VERSION.json
+          Compress-Archive -Path artifact/* -DestinationPath "Eglantine-toolmods-$sha-windows-x64.zip"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: eglantine-toolmods-windows-x64-${{ github.sha }}
+          path: Eglantine-toolmods-*-windows-x64.zip

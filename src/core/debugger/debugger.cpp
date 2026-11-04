@@ -30,19 +30,28 @@
 #include "core/hle/kernel/k_process.h"
 #include "core/hle/kernel/k_scheduler.h"
 
-template <typename Readable, typename Buffer, typename Callback>
-static void AsyncReceiveInto(Readable& r, Buffer& buffer, Callback&& c) {
+template <typename Readable, typename Buffer, typename Callback, typename ErrorCallback>
+static void AsyncReceiveInto(Readable& r, Buffer& buffer, Callback&& c, ErrorCallback&& on_error) {
     static_assert(std::is_trivial_v<Buffer>);
     auto boost_buffer{boost::asio::buffer(&buffer, sizeof(Buffer))};
     r.async_read_some(
-        boost_buffer, [&, c](const boost::system::error_code& error, size_t bytes_read) {
+        boost_buffer, [&, c, on_error](const boost::system::error_code& error,
+                                       size_t bytes_read) {
             if (!error.failed()) {
                 const u8* buffer_start = reinterpret_cast<const u8*>(&buffer);
                 std::span<const u8> received_data{buffer_start, buffer_start + bytes_read};
                 c(received_data);
-                AsyncReceiveInto(r, buffer, c);
+                AsyncReceiveInto(r, buffer, c, on_error);
+            } else {
+                on_error(error);
             }
         });
+}
+
+template <typename Readable, typename Buffer, typename Callback>
+static void AsyncReceiveInto(Readable& r, Buffer& buffer, Callback&& c) {
+    AsyncReceiveInto(r, buffer, std::forward<Callback>(c),
+                     [](const boost::system::error_code&) {});
 }
 
 template <typename Callback>
@@ -166,6 +175,7 @@ private:
 
         // Ensure everything is stopped.
         PauseEmulation();
+        stopped = true;
 
         // Set up the new frontend.
         frontend = std::make_unique<GDBStub>(*this, system, debug_process.GetPointerUnsafe());
@@ -175,7 +185,9 @@ private:
 
         // Set up the client signals for new data.
         AsyncReceiveInto(state->signal_pipe, state->pipe_data, [&](auto d) { PipeData(d); });
-        AsyncReceiveInto(state->client_socket, state->client_data, [&](auto d) { ClientData(d); });
+        AsyncReceiveInto(state->client_socket, state->client_data,
+                         [&](auto d) { ClientData(d); },
+                         [&](const auto& error) { ClientDisconnected(error); });
 
         // Set the active thread.
         UpdateActiveThread();
@@ -269,6 +281,30 @@ private:
             }
             }
         }
+    }
+
+    void ClientDisconnected(const boost::system::error_code& error) {
+        std::scoped_lock lk{connection_lock};
+        if (!state) {
+            return;
+        }
+
+        LOG_WARNING(Debug_GDBStub, "Debugger client disconnected: {}", error.message());
+
+        // AcceptConnection pauses every guest thread before handing control to
+        // the client. Resume on disconnect so a dropped helper cannot strand
+        // the game in a debugger stop state.
+        if (stopped && debug_process.GetPointerUnsafe() != nullptr) {
+            stopped = false;
+            ResumeEmulation();
+        }
+
+        boost::system::error_code ignored;
+        state->client_socket.close(ignored);
+        state->signal_pipe.close(ignored);
+        frontend.reset();
+        state.reset();
+        debug_process.Reset(nullptr);
     }
 
     void PauseEmulation() {
