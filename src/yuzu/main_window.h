@@ -552,6 +552,7 @@ private:
 
     // Whether emulation is currently running in yuzu.
     bool emulation_running = false;
+    QAction* action_tool_mods = nullptr;
     bool boot_in_progress = false;
     bool close_pending = false;
     // The path to the game currently running
