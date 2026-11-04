@@ -44,6 +44,7 @@
 #include "util/util.h"
 #include "yuzu/game/game_list.h"
 #include "yuzu/nup_dialogs.h"
+#include "yuzu/tool_mods/tool_mod_manager.h"
 
 #include "applets/qt_amiibo_settings.h"
 #include "applets/qt_controller.h"
@@ -1645,6 +1646,18 @@ void MainWindow::ConnectMenuEvents() {
     connect_menu(ui->action_About, &MainWindow::OnAbout);
     connect_menu(ui->action_Eden_Dependencies, &MainWindow::OnEdenDependencies);
     connect_menu(ui->action_Data_Manager, &MainWindow::OnDataDialog);
+
+    ui->menu_Tools->addSeparator();
+    action_tool_mods = ui->menu_Tools->addAction(tr("Runtime Tool Mods..."));
+    action_tool_mods->setEnabled(false);
+    connect_menu(action_tool_mods, [this] {
+        if (!emulation_running || QtCommon::system == nullptr ||
+            !QtCommon::system->IsPoweredOn()) {
+            return;
+        }
+        ToolMods::ToolModManager::ShowDialog(
+            this, QtCommon::system->GetApplicationProcessProgramID());
+    });
 }
 
 void MainWindow::UpdateMenuState() {
@@ -1678,6 +1691,10 @@ void MainWindow::UpdateMenuState() {
     }
 
     ui->action_Capture_Screenshot->setEnabled(emulation_running && !is_paused);
+    if (action_tool_mods != nullptr) {
+        action_tool_mods->setEnabled(emulation_running && QtCommon::system != nullptr &&
+                                     QtCommon::system->IsPoweredOn());
+    }
 
     if (emulation_running && is_paused) {
         ui->action_Pause->setText(tr("&Continue"));
