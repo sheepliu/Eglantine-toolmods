@@ -1,0 +1,49 @@
+name: sync-toolmods-upstream
+
+on:
+  schedule:
+    - cron: '17 4 * * *'
+  workflow_dispatch:
+    inputs:
+      upstream_ref:
+        description: Upstream branch or tag to rebase onto
+        required: true
+        default: nx2
+        type: string
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: sync-toolmods-upstream
+  cancel-in-progress: false
+
+jobs:
+  rebase:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out known-good integration baseline
+        uses: actions/checkout@v5
+        with:
+          ref: toolmods/build-194
+          fetch-depth: 0
+
+      - name: Rebase integration commit onto upstream
+        shell: bash
+        env:
+          UPSTREAM_REF: ${{ inputs.upstream_ref || 'nx2' }}
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git remote add upstream https://github.com/Djihads80/Eglantine.git
+          git fetch --no-tags upstream "$UPSTREAM_REF"
+          git checkout -B toolmods/nx2 toolmods/build-194
+          git rebase "upstream/$UPSTREAM_REF"
+          git push origin HEAD:toolmods/nx2 --force-with-lease
+
+      - name: Start Windows build for rebased branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run toolmods-windows.yml --repo "$GITHUB_REPOSITORY" --ref toolmods/nx2
