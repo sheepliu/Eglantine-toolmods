@@ -1019,13 +1019,10 @@ Result KProcess::Run(KernelCore& kernel, s32 priority, size_t stack_size) {
         this->ChangeState(kernel, state);
     };
 
-    // Suspend for debug, if we should.
-    if (kernel.System().DebuggerEnabled()) {
-        LOG_INFO(Debug_GDBStub,
-                 "GDB stub enabled; suspending guest process until a debugger continues execution on port {}",
-                 Settings::values.gdbstub_port.GetValue());
-        main_thread->RequestSuspend(kernel, SuspendType::Debug);
-    }
+    // Do not suspend the first guest thread merely because the GDB stub is
+    // enabled.  The debugger backend pauses all guest threads when a client
+    // connects, so an attached GDB helper still gets a fully stopped target
+    // while normal launches reach the game's title screen immediately.
 
     // Run our thread.
     R_TRY(main_thread->Run(kernel));
