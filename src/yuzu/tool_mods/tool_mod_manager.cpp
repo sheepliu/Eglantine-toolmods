@@ -59,6 +59,17 @@ struct Package {
     QStringList entrypoint_args;
     QStringList on_open_args;
     QStringList capabilities;
+    struct UiSpec {
+        QString type;
+        QString title;
+        QString input_label;
+        QString button_label;
+        QString status_text;
+        int minimum{1};
+        int maximum{999};
+        int default_value{1};
+        bool valid{};
+    } ui;
     bool enabled{};
 };
 
@@ -126,6 +137,49 @@ QStringList ReadCapabilities(const QJsonValue& value, bool* valid) {
     }
     capabilities.removeDuplicates();
     return capabilities;
+}
+
+Package::UiSpec ReadUiSpec(const QJsonValue& value, bool* valid) {
+    Package::UiSpec ui;
+    if (value.isUndefined() || value.isNull()) {
+        return ui;
+    }
+    if (!value.isObject()) {
+        *valid = false;
+        return ui;
+    }
+
+    const QJsonObject object = value.toObject();
+    ui.type = object.value(QStringLiteral("type")).toString();
+    if (ui.type != QStringLiteral("numeric_action")) {
+        *valid = false;
+        return ui;
+    }
+    ui.title = object.value(QStringLiteral("title")).toString();
+    ui.input_label = object.value(QStringLiteral("input_label")).toString();
+    ui.button_label = object.value(QStringLiteral("button_label")).toString();
+    ui.status_text = object.value(QStringLiteral("status_text")).toString();
+    if (ui.title.isEmpty() || ui.input_label.isEmpty() || ui.button_label.isEmpty() ||
+        ui.status_text.isEmpty() || ui.title.size() > 120 || ui.input_label.size() > 120 ||
+        ui.button_label.size() > 120 || ui.status_text.size() > 500) {
+        *valid = false;
+        return ui;
+    }
+
+    const auto read_int = [&object](const QString& key, int fallback) {
+        const QJsonValue number = object.value(key);
+        return number.isUndefined() ? fallback : number.toInt(fallback);
+    };
+    ui.minimum = read_int(QStringLiteral("minimum"), 1);
+    ui.maximum = read_int(QStringLiteral("maximum"), 50000);
+    ui.default_value = read_int(QStringLiteral("default"), ui.minimum);
+    if (ui.minimum < 1 || ui.maximum < ui.minimum || ui.maximum > 50000 ||
+        ui.default_value < ui.minimum || ui.default_value > ui.maximum) {
+        *valid = false;
+        return ui;
+    }
+    ui.valid = true;
+    return ui;
 }
 
 QList<Package> DiscoverPackages(u64 program_id, QSettings& settings) {
@@ -211,10 +265,12 @@ QList<Package> DiscoverPackages(u64 program_id, QSettings& settings) {
         bool valid_capabilities = true;
         QStringList capabilities =
             ReadCapabilities(manifest.value(QStringLiteral("capabilities")), &valid_capabilities);
+        bool valid_ui = true;
+        Package::UiSpec ui = ReadUiSpec(manifest.value(QStringLiteral("ui")), &valid_ui);
         if (manifest.value(QStringLiteral("manifest_version")).toInt() != 1 ||
             manifest.value(QStringLiteral("api_version")).toInt() != HostApiVersion ||
             !IsValidId(id) || id != directory_id || name.isEmpty() || name.size() > 120 ||
-            version.isEmpty() || version.size() > 40 || !valid_capabilities ||
+            version.isEmpty() || version.size() > 40 || !valid_capabilities || !valid_ui ||
             (!catalog.isEmpty() &&
              (catalog.contains(QLatin1Char('/')) || catalog.contains(QLatin1Char('\\')) ||
               catalog == QStringLiteral(".") || catalog == QStringLiteral("..")))) {
@@ -242,6 +298,7 @@ QList<Package> DiscoverPackages(u64 program_id, QSettings& settings) {
             .entrypoint_args = std::move(entrypoint_args),
             .on_open_args = std::move(on_open_args),
             .capabilities = std::move(capabilities),
+            .ui = std::move(ui),
             .enabled = settings.value(id, false).toBool(),
         });
     }
@@ -323,7 +380,201 @@ void ToolModManager::ShowDialog(QWidget* parent, u64 program_id) {
         const auto package =
             std::find_if(packages.cbegin(), packages.cend(),
                          [&package_id](const Package& item) { return item.id == package_id; });
-        if (package == packages.cend() || package->catalog.isEmpty() ||
+        if (package == packages.cend()) {
+            continue;
+        }
+
+        if (package->ui.valid) {
+            const auto ui = package->ui;
+            auto* open_action = new QPushButton(ui.title + QStringLiteral("..."), manager_page);
+            open_action->setEnabled(package->enabled);
+            list->setItemWidget(row, 4, open_action);
+            QObject::connect(
+                open_action, &QPushButton::clicked, dialog,
+                [dialog, pages, manager_page, title_id, package_id,
+                 runtime = package->runtime, entrypoint = package->entrypoint,
+                 entrypoint_args = package->entrypoint_args, ui] {
+                    const std::filesystem::path package_dir =
+                        TitlePackageRoot(title_id) / package_id.toStdString();
+                    const QString package_dir_string = QString::fromStdString(
+                        Common::FS::PathToUTF8String(package_dir));
+                    const QString entrypoint_path = QString::fromStdString(
+                        Common::FS::PathToUTF8String(package_dir / entrypoint.toStdString()));
+                    std::error_code entrypoint_ec;
+                    const auto entrypoint_status =
+                        std::filesystem::symlink_status(package_dir / entrypoint.toStdString(),
+                                                        entrypoint_ec);
+                    if (runtime.isEmpty() || entrypoint.isEmpty() || entrypoint_ec ||
+                        std::filesystem::is_symlink(entrypoint_status) ||
+                        !std::filesystem::is_regular_file(entrypoint_status)) {
+                        QMessageBox::warning(dialog, ui.title,
+                                             QObject::tr("The package entrypoint is missing or invalid."));
+                        return;
+                    }
+
+                    auto* action_page = new QWidget(pages);
+                    pages->addWidget(action_page);
+                    auto* action_layout = new QVBoxLayout(action_page);
+                    auto* description = new QLabel(ui.status_text, action_page);
+                    description->setWordWrap(true);
+                    action_layout->addWidget(description);
+                    auto* value_row = new QHBoxLayout();
+                    value_row->addWidget(new QLabel(ui.input_label, action_page));
+                    auto* value = new QSpinBox(action_page);
+                    value->setRange(ui.minimum, ui.maximum);
+                    value->setValue(ui.default_value);
+                    value_row->addWidget(value);
+                    value_row->addStretch();
+                    action_layout->addLayout(value_row);
+                    auto* run = new QPushButton(ui.button_label, action_page);
+                    auto* cancel = new QPushButton(QObject::tr("Cancel Request"), action_page);
+                    cancel->setEnabled(false);
+                    auto* action_buttons = new QHBoxLayout();
+                    action_buttons->addStretch();
+                    action_buttons->addWidget(cancel);
+                    action_buttons->addWidget(run);
+                    action_layout->addLayout(action_buttons);
+                    auto* status = new QLabel(action_page);
+                    status->setWordWrap(true);
+                    action_layout->addWidget(status);
+
+                    auto* process = new QProcess(action_page);
+                    const QString cancel_file = QString::fromStdString(
+                        Common::FS::PathToUTF8String(package_dir / "cancel.request"));
+                    process->setProcessChannelMode(QProcess::MergedChannels);
+                    auto* process_log = new QFile(
+                        QString::fromStdString(Common::FS::PathToUTF8String(package_dir /
+                                                                            "runtime.log")),
+                        action_page);
+                    const bool log_opened =
+                        process_log->open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text);
+                    Q_UNUSED(log_opened);
+                    auto process_running = std::make_shared<bool>(false);
+                    QObject::connect(process, &QProcess::readyReadStandardOutput, action_page,
+                                     [process, process_log, status] {
+                                         const QByteArray data = process->readAllStandardOutput();
+                                         if (process_log->isOpen() && !data.isEmpty()) {
+                                             process_log->write(data);
+                                             process_log->flush();
+                                         }
+                                         const QString output = QString::fromLocal8Bit(data).trimmed();
+                                         if (!output.isEmpty()) {
+                                             status->setText(output.right(2048));
+                                         }
+                                     });
+                    QObject::connect(
+                        process,
+                        static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished),
+                        action_page,
+                        [dialog, process, process_log, run, cancel, status, process_running,
+                         cancel_file](int exit_code,
+                                                                              QProcess::ExitStatus) {
+                            *process_running = false;
+                            QFile::remove(cancel_file);
+                            if (dialog->active_process == process) {
+                                dialog->active_process = nullptr;
+                            }
+                            run->setEnabled(true);
+                            cancel->setEnabled(false);
+                            const QByteArray data = process->readAllStandardOutput();
+                            if (process_log->isOpen() && !data.isEmpty()) {
+                                process_log->write(data);
+                                process_log->flush();
+                            }
+                            const QString output = QString::fromLocal8Bit(data).trimmed();
+                            status->setText(exit_code == 0
+                                                ? (output.isEmpty() ? QObject::tr("Action completed.")
+                                                                    : output.right(2048))
+                                                : QObject::tr("Action failed (exit %1). %2")
+                                                      .arg(exit_code)
+                                                      .arg(output.right(1800)));
+                        });
+                    QObject::connect(process, &QProcess::errorOccurred, action_page,
+                                     [dialog, process, run, cancel, status,
+                                      cancel_file,
+                                      process_running](QProcess::ProcessError) {
+                                         *process_running = false;
+                                         QFile::remove(cancel_file);
+                                         if (dialog->active_process == process) {
+                                             dialog->active_process = nullptr;
+                                         }
+                                         run->setEnabled(true);
+                                         cancel->setEnabled(false);
+                                         status->setText(QObject::tr(
+                                             "Could not start the package entrypoint."));
+                                     });
+                    QObject::connect(
+                        run, &QPushButton::clicked, action_page,
+                        [dialog, process, run, cancel, status, process_running, cancel_file,
+                         package_dir_string,
+                         title_id, runtime, entrypoint_path, entrypoint_args, value] {
+                            if (*process_running) {
+                                return;
+                            }
+                            QStringList args;
+                            const QString value_text = QString::number(value->value());
+                            for (QString arg : entrypoint_args) {
+                                arg.replace(QStringLiteral("{entrypoint}"), entrypoint_path);
+                                arg.replace(QStringLiteral("{package_dir}"), package_dir_string);
+                                arg.replace(QStringLiteral("{title_id}"), title_id);
+                                arg.replace(QStringLiteral("{value}"), value_text);
+                                arg.replace(QStringLiteral("{quantity}"), value_text);
+                                arg.replace(QStringLiteral("{cancel_file}"), cancel_file);
+                                args.append(std::move(arg));
+                            }
+                            process->setProgram(runtime);
+                            process->setArguments(args);
+                            process->setWorkingDirectory(package_dir_string);
+                            QFile::remove(cancel_file);
+                            *process_running = true;
+                            dialog->active_process = process;
+                            run->setEnabled(false);
+                            cancel->setEnabled(true);
+                            status->setText(QObject::tr("Starting package action..."));
+                            process->start();
+                        });
+                    QObject::connect(
+                        cancel, &QPushButton::clicked, action_page,
+                        [cancel, status, process_running, cancel_file] {
+                            if (!*process_running) {
+                                return;
+                            }
+                            cancel->setEnabled(false);
+                            status->setText(QObject::tr("Cancelling package action..."));
+                            QFile flag(cancel_file);
+                            if (flag.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
+                                flag.write("cancel\n");
+                                flag.close();
+                            }
+                        });
+                    auto* back = new QPushButton(QObject::tr("Back to Mod List"), action_page);
+                    QObject::connect(back, &QPushButton::clicked, action_page,
+                                     [dialog, pages, manager_page, action_page, process,
+                                      status, process_running, title_id] {
+                                         if (*process_running ||
+                                             process->state() != QProcess::NotRunning) {
+                                             status->setText(QObject::tr(
+                                                 "An action is still running; wait for it to finish before leaving this page."));
+                                             return;
+                                         }
+                                         pages->setCurrentWidget(manager_page);
+                                         dialog->setWindowTitle(
+                                             QObject::tr("Runtime Tool Mods - %1").arg(title_id));
+                                         pages->removeWidget(action_page);
+                                         action_page->deleteLater();
+                                     });
+                    auto* footer = new QHBoxLayout();
+                    footer->addStretch();
+                    footer->addWidget(back);
+                    action_layout->addLayout(footer);
+                    dialog->setWindowTitle(ui.title + QStringLiteral(" - ") + title_id);
+                    dialog->resize(620, 300);
+                    pages->setCurrentWidget(action_page);
+                });
+            continue;
+        }
+
+        if (package->catalog.isEmpty() ||
             !package->capabilities.contains(QStringLiteral("inventory.add"))) {
             continue;
         }
@@ -438,11 +689,14 @@ void ToolModManager::ShowDialog(QWidget* parent, u64 program_id) {
                 bottom->addWidget(quantity);
                 bottom->addStretch();
                 auto* grant = new QPushButton(QObject::tr("Add to Convoy"), item_dialog);
+                auto* cancel = new QPushButton(QObject::tr("Cancel Request"), item_dialog);
+                cancel->setEnabled(false);
                 const bool has_entrypoint = !runtime.isEmpty() && !entrypoint.isEmpty();
                 grant->setEnabled(has_entrypoint);
                 if (!has_entrypoint) {
                     grant->setToolTip(QObject::tr("This package has no runtime entrypoint."));
                 }
+                bottom->addWidget(cancel);
                 bottom->addWidget(grant);
                 item_layout->addLayout(bottom);
                 auto* grant_status = new QLabel(
@@ -455,6 +709,8 @@ void ToolModManager::ShowDialog(QWidget* parent, u64 program_id) {
                 grant_status->setWordWrap(true);
                 item_layout->addWidget(grant_status);
                 auto* process = new QProcess(item_dialog);
+                const QString cancel_file = QString::fromStdString(
+                    Common::FS::PathToUTF8String(package_dir / "cancel.request"));
                 process->setProcessChannelMode(QProcess::MergedChannels);
                 auto* process_log = new QFile(
                     QString::fromStdString(Common::FS::PathToUTF8String(package_dir /
@@ -483,10 +739,15 @@ void ToolModManager::ShowDialog(QWidget* parent, u64 program_id) {
                     process,
                     static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished),
                      item_dialog,
-                     [process, process_log, grant, grant_status,
+                     [dialog, process, process_log, grant, cancel, grant_status, cancel_file,
                       process_running](int exit_code, QProcess::ExitStatus) {
                          *process_running = false;
+                        QFile::remove(cancel_file);
+                        if (dialog->active_process == process) {
+                            dialog->active_process = nullptr;
+                        }
                         grant->setEnabled(true);
+                        cancel->setEnabled(false);
                         const QByteArray data = process->readAllStandardOutput();
                         if (process_log->isOpen() && !data.isEmpty()) {
                             process_log->write(data);
@@ -505,10 +766,18 @@ void ToolModManager::ShowDialog(QWidget* parent, u64 program_id) {
                         }
                     });
                 QObject::connect(process, &QProcess::errorOccurred, item_dialog,
-                                  [process, process_log, grant, grant_status,
+                                  [dialog, process, process_log, grant, cancel, grant_status,
+                                   cancel_file,
                                    process_running](QProcess::ProcessError) {
                                       *process_running = process->state() != QProcess::NotRunning;
+                                     if (!*process_running) {
+                                         QFile::remove(cancel_file);
+                                     }
                                      grant->setEnabled(!*process_running);
+                                     cancel->setEnabled(*process_running);
+                                     if (!*process_running && dialog->active_process == process) {
+                                         dialog->active_process = nullptr;
+                                     }
                                      if (process_log->isOpen()) {
                                          process_log->write("\n--- entrypoint error ---\n");
                                          process_log->flush();
@@ -518,7 +787,8 @@ void ToolModManager::ShowDialog(QWidget* parent, u64 program_id) {
                                  });
                 QObject::connect(
                     grant, &QPushButton::clicked, item_dialog,
-                    [dialog, item_list, quantity, process, grant, grant_status,
+                    [dialog, item_list, quantity, process, grant, cancel, grant_status,
+                     cancel_file,
                      process_running, package_dir, title_id, runtime, entrypoint,
                      entrypoint_args] {
                                       if (*process_running) {
@@ -558,17 +828,35 @@ void ToolModManager::ShowDialog(QWidget* parent, u64 program_id) {
                                          arg.replace(QStringLiteral("{title_id}"), title_id);
                                          arg.replace(QStringLiteral("{iid}"), iid);
                                          arg.replace(QStringLiteral("{quantity}"), quantity_text);
+                                         arg.replace(QStringLiteral("{value}"), quantity_text);
+                                         arg.replace(QStringLiteral("{cancel_file}"), cancel_file);
                                          args.append(std::move(arg));
                                      }
                                      process->setProgram(runtime);
                                      process->setArguments(args);
                                      process->setWorkingDirectory(package_dir_string);
+                                      QFile::remove(cancel_file);
                                       *process_running = true;
                                       dialog->active_process = process;
                                       grant->setEnabled(false);
+                                      cancel->setEnabled(true);
                                       grant_status->setText(QObject::tr("Starting package entrypoint..."));
                                       process->start();
                                   });
+                QObject::connect(
+                    cancel, &QPushButton::clicked, item_dialog,
+                    [cancel, grant_status, process_running, cancel_file] {
+                        if (!*process_running) {
+                            return;
+                        }
+                        cancel->setEnabled(false);
+                        grant_status->setText(QObject::tr("Cancelling item request..."));
+                        QFile flag(cancel_file);
+                        if (flag.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
+                            flag.write("cancel\n");
+                            flag.close();
+                        }
+                    });
                 auto* back = new QPushButton(QObject::tr("Back to Mod List"), item_dialog);
                 QObject::connect(back, &QPushButton::clicked, item_dialog,
                                   [dialog, pages, manager_page, item_dialog, process,
