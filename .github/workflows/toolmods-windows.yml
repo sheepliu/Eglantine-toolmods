@@ -231,15 +231,36 @@ jobs:
           prerelease_flag=()
           if [[ "$RELEASE_CHANNEL" != stable ]]; then prerelease_flag+=(--prerelease); fi
           cat > notes.md <<EOF
-          ToolMods channel: $RELEASE_CHANNEL
-          Upstream Eglantine release: $UPSTREAM_REF ($UPSTREAM_COMMIT)
-          ToolMods integration commit: $TOOLMODS_COMMIT
+          ## Eglantine ToolMods package
 
-          Extract the ZIP as a whole and keep tool_mods beside eglantine.exe. VERSION.json records the exact upstream release and source commit.
+          **Release channel:** `$RELEASE_CHANNEL`
+
+          **Upstream Eglantine:** `$UPSTREAM_REF`
+
+          **Upstream source commit:** `$UPSTREAM_COMMIT`
+
+          **ToolMods integration revision:** `$TOOLMODS_COMMIT`
+
+          ### Included ToolMods
+
+          - Generic runtime Tool Mod host and per-mod UI protocol
+          - ItemAdd inventory catalog and runtime helper
+          - Friendship Adjust UI, character catalog, and runtime helper
+          - Cooperative cancellation for running runtime actions
+
+          ### Target game
+
+          - Title ID: `04007EF01F8AE000`
+          - `main` SHA-256: `616e7d906936ea4c2d908d0553cf69779e60242d769c40722267ee8bcb98e79a`
+
+          Extract the ZIP as a whole and keep `tool_mods` beside `eglantine.exe`.
+          `VERSION.json` records the exact upstream release, source commit, and
+          ToolMods revision. The short revision is included in this Release title
+          and asset filename so different builds are distinguishable.
           EOF
           gh release create "$release_tag" "$asset" \
             --repo "$GITHUB_REPOSITORY" \
             --target "$TOOLMODS_COMMIT" \
             "${prerelease_flag[@]}" \
-            --title "Eglantine ToolMods $RELEASE_CHANNEL: $UPSTREAM_REF" \
+            --title "Eglantine ToolMods $RELEASE_CHANNEL: $UPSTREAM_REF [ToolMods ${TOOLMODS_COMMIT::7}]" \
             --notes-file notes.md
