@@ -19,8 +19,8 @@ same IID as `傷藥` and `傷薬`.
 Indirect workflow:
 
 1. Start Eglantine with the guest GDB Stub on port `6543`.
-2. Open `Runtime Tool Mods`, enable this package, press Save, reopen the
-   dialog, and open its item catalog.
+2. Open `Runtime Tool Mods`, enable this package (the setting saves
+   immediately), and open its item catalog in the same tool window.
 3. Select an item and quantity, press `Add to Convoy`, then trigger one normal
    purchase or pickup. The entrypoint commits the selected item in that valid
    inventory context and resumes the game.

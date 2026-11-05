@@ -50,6 +50,15 @@ jobs:
               echo "Rebase conflict for $channel at $tag; channel skipped." >&2
               return 0
             fi
+            if git show-ref --verify --quiet "refs/remotes/origin/$branch"; then
+              previous_tree=$(git rev-parse "refs/remotes/origin/$branch^{tree}")
+              current_tree=$(git rev-parse 'HEAD^{tree}')
+              if [[ "$previous_tree" == "$current_tree" ]] &&
+                 git ls-remote --exit-code --tags origin "refs/tags/toolmods-$channel-$tag-*" >/dev/null; then
+                echo "Channel $channel already published for $tag with unchanged contents; skipping."
+                return 0
+              fi
+            fi
             git push origin HEAD:"refs/heads/$branch" --force
             gh workflow run toolmods-windows.yml \
               --repo "$GITHUB_REPOSITORY" \
