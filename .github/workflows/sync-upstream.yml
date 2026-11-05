@@ -13,7 +13,6 @@ on:
 
 permissions:
   contents: write
-  actions: write
 
 concurrency:
   group: sync-toolmods-upstream
@@ -42,8 +41,3 @@ jobs:
           git checkout -B toolmods/nx2 toolmods/build-194
           git rebase "upstream/$UPSTREAM_REF"
           git push origin HEAD:toolmods/nx2 --force-with-lease
-
-      - name: Start Windows build for rebased branch
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh workflow run toolmods-windows.yml --repo "$GITHUB_REPOSITORY" --ref toolmods/nx2
