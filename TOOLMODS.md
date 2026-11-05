@@ -40,6 +40,9 @@ directory is not scanned or migrated automatically.
   Conflicted channels are skipped without publishing a new artifact.
 - `toolmods-windows.yml` builds only when dispatched. A successful build uploads
   an artifact and publishes the matching test prerelease or stable Release.
+- Windows C/C++ compilation uses a shared sccache GitHub Actions cache. Initial
+  cache population still compiles the full tree; later builds can reuse matching
+  compiler outputs. Each build prints sccache hit/miss statistics in its log.
 
 Every artifact records its upstream tag and commit, Tool Mods commit, title ID,
 and game `main` SHA-256 in `VERSION.json`. A successful compile is not a runtime
