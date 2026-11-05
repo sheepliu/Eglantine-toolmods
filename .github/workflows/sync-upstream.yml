@@ -4,40 +4,75 @@ on:
   schedule:
     - cron: '17 4 * * *'
   workflow_dispatch:
-    inputs:
-      upstream_ref:
-        description: Upstream branch or tag to rebase onto
-        required: true
-        default: nx2
-        type: string
 
 permissions:
   contents: write
+  actions: write
 
 concurrency:
   group: sync-toolmods-upstream
   cancel-in-progress: false
 
 jobs:
-  rebase:
+  sync-releases:
     runs-on: ubuntu-24.04
     steps:
-      - name: Check out known-good integration baseline
+      - name: Check out ToolMods baseline
         uses: actions/checkout@v5
         with:
           ref: toolmods/build-194
           fetch-depth: 0
 
-      - name: Rebase integration commit onto upstream
+      - name: Rebase and dispatch release channels
         shell: bash
         env:
-          UPSTREAM_REF: ${{ inputs.upstream_ref || 'nx2' }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git remote add upstream https://github.com/Djihads80/Eglantine.git
-          git fetch --no-tags upstream "$UPSTREAM_REF"
-          git checkout -B toolmods/nx2 toolmods/build-194
-          git rebase "upstream/$UPSTREAM_REF"
-          git push origin HEAD:toolmods/nx2 --force-with-lease
+
+          releases=$(gh api 'repos/Djihads80/Eglantine/releases?per_page=100')
+          build_tag=$(jq -r '[.[] | select(.draft == false and .prerelease == true and (.tag_name | test("^build-[0-9]+$")))] | sort_by(.tag_name | ltrimstr("build-") | tonumber) | last | .tag_name // empty' <<< "$releases")
+          rc_tag=$(jq -r '[.[] | select(.draft == false and .prerelease == true and (.tag_name | test("^v[0-9]+\\.[0-9]+\\.[0-9]+-rc[0-9]+$")))] | sort_by(.published_at) | last | .tag_name // empty' <<< "$releases")
+          stable_tag=$(jq -r '[.[] | select(.draft == false and .prerelease == false)] | sort_by(.published_at) | last | .tag_name // empty' <<< "$releases")
+
+          sync_channel() {
+            local channel="$1"
+            local tag="$2"
+            local branch="toolmods/$channel"
+            echo "Syncing channel=$channel from upstream tag=$tag"
+            git fetch upstream "refs/tags/$tag:refs/tags/$tag"
+            git checkout -B "$branch" toolmods/build-194
+            if ! git rebase "$tag"; then
+              git rebase --abort || true
+              echo "Rebase conflict for $channel at $tag; channel skipped." >&2
+              return 0
+            fi
+            git push origin HEAD:"refs/heads/$branch" --force
+            gh workflow run toolmods-windows.yml \
+              --repo "$GITHUB_REPOSITORY" \
+              --ref "$branch" \
+              -f publish_release=true \
+              -f release_channel="$channel" \
+              -f upstream_ref="$tag"
+          }
+
+          if [[ -n "$build_tag" ]]; then
+            sync_channel test-build "$build_tag"
+          else
+            echo 'No numbered upstream build release found; test-build skipped.'
+          fi
+
+          if [[ -n "$rc_tag" ]]; then
+            sync_channel test-rc "$rc_tag"
+          else
+            echo 'No upstream release candidate found; test-rc skipped.'
+          fi
+
+          if [[ -n "$stable_tag" ]]; then
+            sync_channel stable "$stable_tag"
+          else
+            echo 'No official upstream release found; stable skipped.'
+          fi
