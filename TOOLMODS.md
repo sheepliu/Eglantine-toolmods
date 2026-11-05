@@ -6,10 +6,12 @@ ItemAdd package as an external per-title package.
 ## Branches
 
 - `toolmods/build-194`: known-good pinned baseline for the original build-194
-  runtime.
+  runtime and the canonical ToolMods integration branch.
 - `toolmods/test-build`, `toolmods/test-rc`, and `toolmods/stable`: generated
-  channels rebased onto the corresponding upstream Release tags. The stable
-  channel is skipped until upstream publishes a non-prerelease Release.
+  channels rebased onto the corresponding upstream Release tags. They are
+  regenerated from the canonical baseline after every push to
+  `toolmods/build-194`, and also by the scheduled/manual upstream sync. The
+  stable channel is skipped until upstream publishes a non-prerelease Release.
 - `origin`: the upstream `Djihads80/Eglantine` repository.
 
 ## Local package layout
@@ -33,9 +35,10 @@ directory is not scanned or migrated automatically.
 - `toolmods-windows.yml` builds the Windows executable and validates the 580
   entry catalog, including Simplified Chinese names, before uploading a ZIP
   artifact.
-- `sync-upstream.yml` runs daily and on demand. It selects the newest numbered
-  build and RC releases, plus an official stable release when one exists.
-  Each channel rebases the integration onto its upstream tag and dispatches
+- `sync-upstream.yml` runs after every push to `toolmods/build-194`, daily, and
+  on demand. It selects the newest numbered build and RC releases, plus an
+  official stable release when one exists. Each channel starts from the same
+  canonical ToolMods baseline, rebases it onto its upstream tag, and dispatches
   the Windows build only when its contents or upstream release changed.
   Conflicted channels are skipped without publishing a new artifact.
 - `toolmods-windows.yml` builds only when dispatched. A successful build uploads
