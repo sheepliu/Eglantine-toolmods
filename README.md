@@ -11,20 +11,24 @@
 > generic runtime Tool Mod host and the inventory ItemAdd package for title
 > `04007EF01F8AE000`.
 >
-> This fork tracks the upstream `nx2` branch through the scheduled
-> `sync-toolmods-upstream` workflow. Windows packages are built and published
-> automatically after a successful rebase. Download them from the
+> This fork tracks upstream numbered builds and release candidates as test
+> packages, and publishes a stable package only when upstream creates a formal
+> non-prerelease release. Windows packages are built and published by the
+> scheduled `sync-toolmods-upstream` workflow. Download them from the
 > [ToolMods Releases](https://github.com/sheepliu/Eglantine-toolmods/releases)
 > page. Extract the ZIP as a whole and keep `tool_mods` beside `eglantine.exe`.
 
 ## ToolMods Distribution
 
 - **Windows package:** [latest ToolMods release](https://github.com/sheepliu/Eglantine-toolmods/releases)
+- **Test channels:** latest upstream `build-N` and latest semantic `-rcN` release.
+- **Stable channel:** latest upstream release marked as non-prerelease; no stable package is generated before one exists upstream.
 - **ItemAdd package:** `tool_mods/04007EF01F8AE000/item-add/`
-- **Version record:** `VERSION.json` contains the upstream commit, game title ID,
-  and expected game `main` hash.
-- **Update policy:** the scheduled sync rebases the integration onto upstream
-  `nx2`; a successful rebase starts the Windows build and Release workflow.
+- **Version record:** `VERSION.json` contains the channel, exact upstream
+  release tag and commit, ToolMods commit, game title ID, and expected game
+  `main` hash.
+- **Update policy:** the scheduled sync checks upstream Releases once per day,
+  rebases each available channel, and explicitly dispatches its Windows build.
 
 The original Eglantine documentation below remains available for emulator
 building, configuration, compatibility, and licensing details.

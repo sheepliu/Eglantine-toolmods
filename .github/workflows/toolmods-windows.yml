@@ -1,20 +1,22 @@
 name: toolmods-windows
 
 on:
-  push:
-    branches:
-      - 'toolmods/**'
-    paths:
-      - 'src/**'
-      - 'CMakeLists.txt'
-      - 'CMakeModules/**'
-      - 'externals/**'
-      - 'dist/tool_mods/**'
-      - '.github/workflows/toolmods-windows.yml'
   workflow_dispatch:
     inputs:
+      release_channel:
+        description: ToolMods release channel
+        required: true
+        type: choice
+        options:
+          - test-build
+          - test-rc
+          - stable
+      upstream_ref:
+        description: Exact upstream Eglantine release tag to build
+        required: true
+        type: string
       publish_release:
-        description: Publish the Windows ToolMods package as a GitHub pre-release
+        description: Publish the verified package as a GitHub Release
         type: boolean
         default: true
 
@@ -22,17 +24,58 @@ permissions:
   contents: read
 
 concurrency:
-  group: toolmods-windows-${{ github.ref }}
+  group: toolmods-windows-${{ inputs.release_channel }}
   cancel-in-progress: false
 
 jobs:
   build:
     runs-on: windows-2022
+    outputs:
+      upstream_commit: ${{ steps.upstream.outputs.commit }}
+      package_name: ${{ steps.package.outputs.name }}
     steps:
-      - name: Check out source
+      - name: Check out integration source
         uses: actions/checkout@v5
         with:
-          fetch-depth: 1
+          fetch-depth: 0
+
+      - name: Validate upstream release and resolve commit
+        id: upstream
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_CHANNEL: ${{ inputs.release_channel }}
+          UPSTREAM_REF: ${{ inputs.upstream_ref }}
+        run: |
+          set -euo pipefail
+          release=$(gh api "repos/Djihads80/Eglantine/releases/tags/$UPSTREAM_REF")
+          prerelease=$(jq -r '.prerelease' <<< "$release")
+          case "$RELEASE_CHANNEL" in
+            test-build)
+              [[ "$UPSTREAM_REF" =~ ^build-[0-9]+$ && "$prerelease" == true ]] || {
+                echo "test-build requires a numbered prerelease tag; got $UPSTREAM_REF" >&2
+                exit 1
+              }
+              ;;
+            test-rc)
+              [[ "$UPSTREAM_REF" =~ ^v[0-9]+\.[0-9]+\.[0-9]+-rc[0-9]+$ && "$prerelease" == true ]] || {
+                echo "test-rc requires a semantic RC prerelease tag; got $UPSTREAM_REF" >&2
+                exit 1
+              }
+              ;;
+            stable)
+              [[ "$prerelease" == false ]] || {
+                echo "stable requires a non-prerelease upstream Release; got $UPSTREAM_REF" >&2
+                exit 1
+              }
+              ;;
+            *) echo "Unknown release channel: $RELEASE_CHANNEL" >&2; exit 1 ;;
+          esac
+          git remote add upstream https://github.com/Djihads80/Eglantine.git
+          git fetch --no-tags upstream "refs/tags/$UPSTREAM_REF"
+          commit=$(git rev-parse 'FETCH_HEAD^{commit}')
+          echo "commit=$commit" >> "$GITHUB_OUTPUT"
+          echo "Validated $RELEASE_CHANNEL release $UPSTREAM_REF at $commit"
 
       - name: Set up MSVC
         uses: ilammy/msvc-dev-cmd@v1
@@ -98,12 +141,19 @@ jobs:
           if (($items | Where-Object { [string]::IsNullOrWhiteSpace($_.name_zh_cn) }).Count -ne 0) { throw 'Simplified Chinese catalog field is incomplete' }
 
       - name: Package artifact
+        id: package
         shell: pwsh
+        env:
+          RELEASE_CHANNEL: ${{ inputs.release_channel }}
+          UPSTREAM_REF: ${{ inputs.upstream_ref }}
+          UPSTREAM_COMMIT: ${{ steps.upstream.outputs.commit }}
         run: |
           $sha = (git rev-parse HEAD).Trim()
           $version = [ordered]@{
-            upstream_commit = $sha
-            toolmods_revision = '1'
+            release_channel = $env:RELEASE_CHANNEL
+            upstream_release = $env:UPSTREAM_REF
+            upstream_commit = $env:UPSTREAM_COMMIT
+            toolmods_commit = $sha
             game_title_id = '04007EF01F8AE000'
             main_sha256 = '616e7d906936ea4c2d908d0553cf69779e60242d769c40722267ee8bcb98e79a'
           }
@@ -112,18 +162,20 @@ jobs:
           Copy-Item build/toolmods/bin/eglantine.exe artifact/eglantine.exe
           Copy-Item dist/tool_mods artifact/tool_mods -Recurse
           Copy-Item dist/VERSION.json artifact/VERSION.json
-          Compress-Archive -Path artifact/* -DestinationPath "Eglantine-toolmods-$sha-windows-x64.zip"
+          $name = "Eglantine-toolmods-$env:RELEASE_CHANNEL-$env:UPSTREAM_REF-$($sha.Substring(0,7))-windows-x64.zip"
+          Compress-Archive -Path artifact/* -DestinationPath $name
+          "name=$name" | Out-File -Append -Encoding utf8 $env:GITHUB_OUTPUT
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: eglantine-toolmods-windows-x64-${{ github.sha }}
-          path: Eglantine-toolmods-*-windows-x64.zip
+          name: eglantine-toolmods-${{ inputs.release_channel }}-${{ inputs.upstream_ref }}-${{ github.sha }}
+          path: ${{ steps.package.outputs.name }}
 
   release:
-    name: Publish Windows ToolMods release
+    name: Publish ToolMods release
     needs: build
-    if: github.event_name == 'push' || inputs.publish_release
+    if: inputs.publish_release
     runs-on: ubuntu-24.04
     permissions:
       contents: write
@@ -131,28 +183,34 @@ jobs:
       - name: Download build artifact
         uses: actions/download-artifact@v4
         with:
-          name: eglantine-toolmods-windows-x64-${{ github.sha }}
+          name: eglantine-toolmods-${{ inputs.release_channel }}-${{ inputs.upstream_ref }}-${{ github.sha }}
           path: dist
 
       - name: Create GitHub release
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
+          RELEASE_CHANNEL: ${{ inputs.release_channel }}
+          UPSTREAM_REF: ${{ inputs.upstream_ref }}
+          UPSTREAM_COMMIT: ${{ needs.build.outputs.upstream_commit }}
+          TOOLMODS_COMMIT: ${{ github.sha }}
         run: |
           set -euo pipefail
           asset=$(find dist -maxdepth 1 -type f -name '*.zip' -print -quit)
           test -n "$asset"
-          tag="toolmods-${GITHUB_RUN_NUMBER}"
+          release_tag="toolmods-$RELEASE_CHANNEL-$UPSTREAM_REF-${TOOLMODS_COMMIT::7}"
+          prerelease_flag=()
+          if [[ "$RELEASE_CHANNEL" != stable ]]; then prerelease_flag+=(--prerelease); fi
           cat > notes.md <<EOF
-          Windows ToolMods package for commit ${GITHUB_SHA}.
+          ToolMods channel: $RELEASE_CHANNEL
+          Upstream Eglantine release: $UPSTREAM_REF ($UPSTREAM_COMMIT)
+          ToolMods integration commit: $TOOLMODS_COMMIT
 
-          Extract the ZIP and run eglantine.exe. The package includes the generic Tool Mod host and the ItemAdd package under tool_mods/04007EF01F8AE000/item-add/.
-
-          The game executable SHA-256 and target main SHA-256 are recorded in VERSION.json.
+          Extract the ZIP as a whole and keep tool_mods beside eglantine.exe. VERSION.json records the exact upstream release and source commit.
           EOF
-          gh release create "$tag" "$asset" \
+          gh release create "$release_tag" "$asset" \
             --repo "$GITHUB_REPOSITORY" \
-            --target "$GITHUB_SHA" \
-            --prerelease \
-            --title "Eglantine ToolMods $GITHUB_REF_NAME ($GITHUB_SHA)" \
+            --target "$TOOLMODS_COMMIT" \
+            "${prerelease_flag[@]}" \
+            --title "Eglantine ToolMods $RELEASE_CHANNEL: $UPSTREAM_REF" \
             --notes-file notes.md
