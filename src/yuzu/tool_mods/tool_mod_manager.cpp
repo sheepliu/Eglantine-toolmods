@@ -9,6 +9,8 @@
 #include <system_error>
 #include <utility>
 
+#include <QCoreApplication>
+#include <QCloseEvent>
 #include <QDialog>
 #include <QDialogButtonBox>
 #include <QFile>
@@ -19,10 +21,12 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QMessageBox>
+#include <QPointer>
 #include <QProcess>
 #include <QPushButton>
 #include <QSettings>
 #include <QSpinBox>
+#include <QStackedWidget>
 #include <QStandardPaths>
 #include <QStringList>
 #include <QTreeWidget>
@@ -40,6 +44,11 @@ QString TitleIdString(u64 program_id) {
     return QString::number(program_id, 16).rightJustified(16, QLatin1Char('0')).toUpper();
 }
 
+std::filesystem::path TitlePackageRoot(const QString& title_id) {
+    return std::filesystem::u8path(QCoreApplication::applicationDirPath().toUtf8().constData()) /
+           "tool_mods" / title_id.toStdString();
+}
+
 struct Package {
     QString id;
     QString name;
@@ -51,6 +60,39 @@ struct Package {
     QStringList on_open_args;
     QStringList capabilities;
     bool enabled{};
+};
+
+class ToolModDialog final : public QDialog {
+public:
+    explicit ToolModDialog(QWidget* parent) : QDialog(parent) {}
+
+    QPointer<QProcess> active_process;
+
+protected:
+    void closeEvent(QCloseEvent* event) override {
+        if (WarnIfBusy()) {
+            event->ignore();
+            return;
+        }
+        QDialog::closeEvent(event);
+    }
+
+    void reject() override {
+        if (!WarnIfBusy()) {
+            QDialog::reject();
+        }
+    }
+
+private:
+    bool WarnIfBusy() {
+        if (!active_process || active_process->state() == QProcess::NotRunning) {
+            return false;
+        }
+        QMessageBox::information(this, QObject::tr("Item Request"),
+                                 QObject::tr("An item request is still running; wait for it "
+                                             "to finish before closing this window."));
+        return true;
+    }
 };
 
 bool IsValidId(const QString& id) {
@@ -88,8 +130,7 @@ QStringList ReadCapabilities(const QJsonValue& value, bool* valid) {
 
 QList<Package> DiscoverPackages(u64 program_id, QSettings& settings) {
     const QString title_id = TitleIdString(program_id);
-    const std::filesystem::path root = Common::FS::GetEdenPath(Common::FS::EdenPath::ConfigDir) /
-                                       "tool_mods" / title_id.toStdString();
+    const std::filesystem::path root = TitlePackageRoot(title_id);
     QList<Package> packages;
     std::error_code ec;
     if (!std::filesystem::is_directory(root, ec)) {
@@ -211,26 +252,50 @@ QList<Package> DiscoverPackages(u64 program_id, QSettings& settings) {
 } // namespace
 
 void ToolModManager::ShowDialog(QWidget* parent, u64 program_id) {
+    static QPointer<ToolModDialog> current_dialog;
+    static u64 current_program_id = 0;
+    if (current_dialog) {
+        if (current_program_id == program_id || !current_dialog->close()) {
+            current_dialog->show();
+            current_dialog->raise();
+            current_dialog->activateWindow();
+            return;
+        }
+        current_dialog = nullptr;
+    }
+
     const QString title_id = TitleIdString(program_id);
     const std::filesystem::path settings_path =
         Common::FS::GetEdenPath(Common::FS::EdenPath::ConfigDir) / "tool_mods.ini";
-    QSettings settings(QString::fromStdString(Common::FS::PathToUTF8String(settings_path)),
-                       QSettings::IniFormat);
-    QList<Package> packages = DiscoverPackages(program_id, settings);
+    auto* dialog = new ToolModDialog(parent);
+    dialog->setAttribute(Qt::WA_DeleteOnClose);
+    dialog->setWindowModality(Qt::NonModal);
+    dialog->setWindowTitle(QObject::tr("Runtime Tool Mods - %1").arg(title_id));
+    dialog->resize(720, 420);
+    current_dialog = dialog;
+    current_program_id = program_id;
 
-    QDialog dialog(parent);
-    dialog.setWindowTitle(QObject::tr("Runtime Tool Mods - %1").arg(title_id));
-    dialog.resize(720, 420);
-    auto* layout = new QVBoxLayout(&dialog);
+    auto* settings = new QSettings(
+        QString::fromStdString(Common::FS::PathToUTF8String(settings_path)),
+        QSettings::IniFormat, dialog);
+    QList<Package> packages = DiscoverPackages(program_id, *settings);
+    auto* window_layout = new QVBoxLayout(dialog);
+    window_layout->setContentsMargins(0, 0, 0, 0);
+    auto* pages = new QStackedWidget(dialog);
+    window_layout->addWidget(pages);
+    auto* manager_page = new QWidget(pages);
+    pages->addWidget(manager_page);
+    auto* layout = new QVBoxLayout(manager_page);
     auto* description =
-        new QLabel(QObject::tr("Packages are discovered from the per-title tool_mods "
-                               "directory. The host validates each manifest and launches a "
-                               "package entrypoint only when its package action is requested."),
-                   &dialog);
+        new QLabel(QObject::tr("Packages are discovered from tool_mods/<title ID> beside the "
+                               "emulator executable. The host validates each manifest and "
+                               "launches a package entrypoint only when its package action "
+                               "is requested."),
+                   manager_page);
     description->setWordWrap(true);
     layout->addWidget(description);
 
-    auto* list = new QTreeWidget(&dialog);
+    auto* list = new QTreeWidget(manager_page);
     list->setColumnCount(5);
     list->setHeaderLabels({QObject::tr("Enabled"), QObject::tr("Name"), QObject::tr("Version"),
                            QObject::tr("Capabilities"), QObject::tr("Actions")});
@@ -263,24 +328,23 @@ void ToolModManager::ShowDialog(QWidget* parent, u64 program_id) {
             continue;
         }
 
-        auto* open_catalog = new QPushButton(QObject::tr("Open Item Catalog..."), &dialog);
+        auto* open_catalog = new QPushButton(QObject::tr("Open Item Catalog..."), manager_page);
         open_catalog->setEnabled(package->enabled);
         list->setItemWidget(row, 4, open_catalog);
         QObject::connect(
-            open_catalog, &QPushButton::clicked, &dialog,
-            [&dialog, parent, title_id, package_id, catalog = package->catalog,
+            open_catalog, &QPushButton::clicked, dialog,
+            [dialog, pages, manager_page, title_id, package_id, catalog = package->catalog,
              runtime = package->runtime, entrypoint = package->entrypoint,
              entrypoint_args = package->entrypoint_args] {
                 const std::filesystem::path package_dir =
-                    Common::FS::GetEdenPath(Common::FS::EdenPath::ConfigDir) / "tool_mods" /
-                    title_id.toStdString() / package_id.toStdString();
+                    TitlePackageRoot(title_id) / package_id.toStdString();
                 const auto path = package_dir / catalog.toStdString();
                 std::error_code ec;
                 const auto status = std::filesystem::symlink_status(path, ec);
                 if (ec || std::filesystem::is_symlink(status) ||
                     !std::filesystem::is_regular_file(status) ||
                     std::filesystem::file_size(path, ec) > 4 * 1024 * 1024 || ec) {
-                    QMessageBox::warning(parent, QObject::tr("Item Catalog"),
+                    QMessageBox::warning(dialog, QObject::tr("Item Catalog"),
                                          QObject::tr("The package catalog is missing "
                                                      "or invalid."));
                     return;
@@ -288,7 +352,7 @@ void ToolModManager::ShowDialog(QWidget* parent, u64 program_id) {
 
                 QFile file(QString::fromStdString(Common::FS::PathToUTF8String(path)));
                 if (!file.open(QIODevice::ReadOnly)) {
-                    QMessageBox::warning(parent, QObject::tr("Item Catalog"),
+                    QMessageBox::warning(dialog, QObject::tr("Item Catalog"),
                                          QObject::tr("The package catalog could not "
                                                      "be opened."));
                     return;
@@ -297,7 +361,7 @@ void ToolModManager::ShowDialog(QWidget* parent, u64 program_id) {
                 const QJsonDocument document =
                     QJsonDocument::fromJson(file.readAll(), &parse_error);
                 if (parse_error.error != QJsonParseError::NoError || !document.isArray()) {
-                    QMessageBox::warning(parent, QObject::tr("Item Catalog"),
+                    QMessageBox::warning(dialog, QObject::tr("Item Catalog"),
                                          QObject::tr("The package catalog format is "
                                                      "invalid."));
                     return;
@@ -325,21 +389,14 @@ void ToolModManager::ShowDialog(QWidget* parent, u64 program_id) {
                     }
                 }
                 if (items.isEmpty()) {
-                    QMessageBox::warning(parent, QObject::tr("Item Catalog"),
+                    QMessageBox::warning(dialog, QObject::tr("Item Catalog"),
                                          QObject::tr("No valid item entries were "
                                                      "found."));
                     return;
                 }
 
-                auto* item_dialog = new QDialog(&dialog);
-                item_dialog->setAttribute(Qt::WA_DeleteOnClose);
-                item_dialog->setModal(false);
-                item_dialog->setWindowModality(Qt::NonModal);
-                item_dialog->setWindowTitle(QObject::tr("Add Item - %1").arg(title_id));
-                item_dialog->resize(1040, 520);
-                // An in-flight guest GDB request must not be orphaned by closing
-                // the catalog window while the game is paused.
-                item_dialog->setWindowFlag(Qt::WindowCloseButtonHint, false);
+                auto* item_dialog = new QWidget(pages);
+                pages->addWidget(item_dialog);
                 auto* item_layout = new QVBoxLayout(item_dialog);
                 auto* search = new QLineEdit(item_dialog);
                 search->setPlaceholderText(QObject::tr("Search IID or item name"));
@@ -448,10 +505,10 @@ void ToolModManager::ShowDialog(QWidget* parent, u64 program_id) {
                         }
                     });
                 QObject::connect(process, &QProcess::errorOccurred, item_dialog,
-                                  [process_log, grant, grant_status,
+                                  [process, process_log, grant, grant_status,
                                    process_running](QProcess::ProcessError) {
-                                      *process_running = false;
-                                     grant->setEnabled(true);
+                                      *process_running = process->state() != QProcess::NotRunning;
+                                     grant->setEnabled(!*process_running);
                                      if (process_log->isOpen()) {
                                          process_log->write("\n--- entrypoint error ---\n");
                                          process_log->flush();
@@ -461,7 +518,7 @@ void ToolModManager::ShowDialog(QWidget* parent, u64 program_id) {
                                  });
                 QObject::connect(
                     grant, &QPushButton::clicked, item_dialog,
-                    [item_list, quantity, process, grant, grant_status,
+                    [dialog, item_list, quantity, process, grant, grant_status,
                      process_running, package_dir, title_id, runtime, entrypoint,
                      entrypoint_args] {
                                       if (*process_running) {
@@ -507,50 +564,61 @@ void ToolModManager::ShowDialog(QWidget* parent, u64 program_id) {
                                      process->setArguments(args);
                                      process->setWorkingDirectory(package_dir_string);
                                       *process_running = true;
+                                      dialog->active_process = process;
                                       grant->setEnabled(false);
                                       grant_status->setText(QObject::tr("Starting package entrypoint..."));
                                       process->start();
                                   });
-                auto* close = new QDialogButtonBox(QDialogButtonBox::Close, item_dialog);
-                 QObject::connect(close, &QDialogButtonBox::rejected, item_dialog,
-                                  [item_dialog, grant_status, process_running] {
-                                      if (*process_running) {
+                auto* back = new QPushButton(QObject::tr("Back to Mod List"), item_dialog);
+                QObject::connect(back, &QPushButton::clicked, item_dialog,
+                                  [dialog, pages, manager_page, item_dialog, process,
+                                   grant_status, process_running, title_id] {
+                                      if (*process_running ||
+                                          process->state() != QProcess::NotRunning) {
                                           grant_status->setText(QObject::tr(
                                               "An item request is still running; wait for it to "
-                                              "finish before closing this window."));
+                                              "finish before leaving this page."));
                                           return;
                                       }
-                                      item_dialog->close();
+                                      pages->setCurrentWidget(manager_page);
+                                      dialog->setWindowTitle(
+                                          QObject::tr("Runtime Tool Mods - %1").arg(title_id));
+                                      pages->removeWidget(item_dialog);
+                                      item_dialog->deleteLater();
                                   });
-                item_layout->addWidget(close);
-                item_dialog->show();
-                item_dialog->raise();
-                item_dialog->activateWindow();
+                auto* footer = new QHBoxLayout();
+                footer->addStretch();
+                footer->addWidget(back);
+                item_layout->addLayout(footer);
+                dialog->setWindowTitle(QObject::tr("Add Item - %1").arg(title_id));
+                dialog->resize(1040, 520);
+                pages->setCurrentWidget(item_dialog);
              });
     }
 
     if (packages.isEmpty()) {
-        auto* empty = new QLabel(QObject::tr("No compatible packages found."), &dialog);
+        auto* empty = new QLabel(QObject::tr("No compatible packages found."), manager_page);
         layout->insertWidget(1, empty);
     }
 
-    auto* buttons =
-        new QDialogButtonBox(QDialogButtonBox::Save | QDialogButtonBox::Cancel, &dialog);
-    QObject::connect(buttons, &QDialogButtonBox::accepted, &dialog, &QDialog::accept);
-    QObject::connect(buttons, &QDialogButtonBox::rejected, &dialog, &QDialog::reject);
+    QObject::connect(list, &QTreeWidget::itemChanged, dialog,
+                     [settings, title_id, list](QTreeWidgetItem* row, int column) {
+                         if (column != 0) {
+                             return;
+                         }
+                         const bool enabled = row->checkState(0) == Qt::Checked;
+                         settings->beginGroup(QStringLiteral("games/%1").arg(title_id));
+                         settings->setValue(row->data(0, Qt::UserRole).toString(), enabled);
+                         settings->endGroup();
+                         settings->sync();
+                         if (QWidget* action = list->itemWidget(row, 4)) {
+                             action->setEnabled(enabled);
+                         }
+                     });
+    auto* buttons = new QDialogButtonBox(QDialogButtonBox::Close, manager_page);
+    QObject::connect(buttons, &QDialogButtonBox::rejected, dialog, &QDialog::close);
     layout->addWidget(buttons);
-
-    if (dialog.exec() != QDialog::Accepted) {
-        return;
-    }
-
-    settings.beginGroup(QStringLiteral("games/%1").arg(title_id));
-    for (int i = 0; i < list->topLevelItemCount(); ++i) {
-        const QTreeWidgetItem* row = list->topLevelItem(i);
-        settings.setValue(row->data(0, Qt::UserRole).toString(), row->checkState(0) == Qt::Checked);
-    }
-    settings.endGroup();
-    settings.sync();
+    dialog->show();
 }
 
 } // namespace ToolMods
