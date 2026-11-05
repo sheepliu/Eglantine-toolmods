@@ -1,0 +1,34 @@
+{
+  "manifest_version": 1,
+  "api_version": 1,
+  "id": "friendship-adjust",
+  "name": "Friendship Adjust Runtime",
+  "version": "0.1.0",
+  "runtime": "python",
+  "entrypoint": "friendship_gdb.py",
+  "entrypoint_args": [
+    "-X",
+    "utf8",
+    "{entrypoint}",
+    "--amount",
+    "{value}",
+    "--wait",
+    "600",
+    "--skip-local-main-check",
+    "--cancel-file",
+    "{cancel_file}",
+    "--report-dir",
+    "{package_dir}\\reports"
+  ],
+  "capabilities": ["friendship.adjust", "guest.gdb"],
+  "ui": {
+    "type": "numeric_action",
+    "title": "Friendship Adjust",
+    "input_label": "Next gift increase",
+    "button_label": "Apply to next gift",
+    "status_text": "Enter the relationship-point increase, then press the button and give one gift in-game.",
+    "minimum": 1,
+    "maximum": 50000,
+    "default": 500
+  }
+}

@@ -15,6 +15,7 @@ import json
 import re
 import socket
 import struct
+import time
 from datetime import datetime
 from pathlib import Path
 
@@ -55,10 +56,18 @@ def item_hash(iid: str) -> int:
     return value or 0xFFFFFFFFFFFFFFFF
 
 
+class CancelledError(RuntimeError):
+    pass
+
+
 class Remote:
-    def __init__(self, host: str, port: int):
+    def __init__(self, host: str, port: int, cancel_file: Path | None = None):
         self.sock = socket.create_connection((host, port), timeout=5)
         self.sock.settimeout(10)
+        self.cancel_file = cancel_file
+
+    def cancelled(self) -> bool:
+        return self.cancel_file is not None and self.cancel_file.exists()
 
     def close(self) -> None:
         self.sock.close()
@@ -105,15 +114,23 @@ class Remote:
         return result
 
     def continue_to_stop(self, timeout: int) -> str:
-        self.sock.settimeout(timeout)
-        try:
-            result = self.command("c")
-        except socket.timeout:
-            self.sock.settimeout(10)
-            self.interrupt()
-            raise TimeoutError("no item reward before deadline; guest paused for cleanup")
-        finally:
-            self.sock.settimeout(10)
+        deadline = time.monotonic() + timeout
+        while True:
+            if self.cancelled():
+                raise CancelledError("request cancelled")
+            remaining = deadline - time.monotonic()
+            if remaining <= 0:
+                raise TimeoutError("no item reward before deadline; guest paused for cleanup")
+            self.sock.settimeout(min(1.0, remaining))
+            try:
+                result = self.command("c")
+                break
+            except socket.timeout:
+                self.sock.settimeout(10)
+                self.interrupt()
+                if self.cancelled():
+                    raise CancelledError("request cancelled")
+        self.sock.settimeout(10)
         if not result.startswith("T05"):
             raise RuntimeError(f"unexpected guest stop: {result}")
         return result
@@ -221,7 +238,7 @@ def guest_call(remote: Remote, base: int, entry: int, trap: int,
 
 def run(mode: str, port: int, wait: int, iid: str = IID, quantity: int = 1,
         main_path: Path = MAIN, log_path: Path = EDEN_LOG,
-        skip_local_main_check: bool = False) -> dict:
+        skip_local_main_check: bool = False, cancel_file: Path | None = None) -> dict:
     if not iid.startswith("IID_") or len(iid) > 128:
         raise ValueError("iid must be an IID_ name of at most 128 characters")
     if not 1 <= quantity <= 999:
@@ -230,7 +247,7 @@ def run(mode: str, port: int, wait: int, iid: str = IID, quantity: int = 1,
         raise ValueError("grant mode currently supports quantity=1 only")
     if not skip_local_main_check:
         check_main(main_path)
-    remote = Remote("127.0.0.1", port)
+    remote = Remote("127.0.0.1", port, cancel_file)
     patched: list[int] = []
     original: str | None = None
     paused = False
@@ -394,7 +411,7 @@ def run(mode: str, port: int, wait: int, iid: str = IID, quantity: int = 1,
             for address in reversed(patched):
                 if remote.command(f"z0,{address:x},4") != "OK":
                     raise RuntimeError(f"failed to remove breakpoint 0x{address:x}")
-            if completed or not calls_started:
+            if completed or not calls_started or remote.cancelled():
                 remote.resume()
             else:
                 print("Guest helper stopped unexpectedly; game left paused for inspection.", flush=True)
@@ -417,12 +434,20 @@ def main() -> None:
                         help="directory for JSON operation reports")
     parser.add_argument("--skip-local-main-check", action="store_true",
                         help="rely on runtime signatures instead of reading a local NSO")
+    parser.add_argument("--cancel-file", type=Path)
     options = parser.parse_args()
     target = options.report_dir / f"itemadd_{datetime.now():%Y%m%d_%H%M%S}.json"
     target.parent.mkdir(parents=True, exist_ok=True)
     try:
         result = run(options.mode, options.port, options.wait, options.iid, options.quantity,
-                     options.main, options.log, options.skip_local_main_check)
+                     options.main, options.log, options.skip_local_main_check,
+                     options.cancel_file)
+    except CancelledError as error:
+        result = {"iid": options.iid, "quantity": options.quantity, "mode": options.mode,
+                  "cancelled": True, "message": str(error)}
+        target.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        print(json.dumps({"report": str(target), **result}, ensure_ascii=False, indent=2))
+        return
     except Exception as error:
         result = {"iid": options.iid, "quantity": options.quantity, "mode": options.mode,
                   "error": f"{type(error).__name__}: {error}"}
