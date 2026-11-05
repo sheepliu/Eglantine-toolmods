@@ -7,6 +7,28 @@
 -->
 <!-- lang: en-GB -->
 
+> **Eglantine ToolMods** is a maintained integration fork of Eglantine nx2 with a
+> generic runtime Tool Mod host and the inventory ItemAdd package for title
+> `04007EF01F8AE000`.
+>
+> This fork tracks the upstream `nx2` branch through the scheduled
+> `sync-toolmods-upstream` workflow. Windows packages are built and published
+> automatically after a successful rebase. Download them from the
+> [ToolMods Releases](https://github.com/sheepliu/Eglantine-toolmods/releases)
+> page. Extract the ZIP as a whole and keep `tool_mods` beside `eglantine.exe`.
+
+## ToolMods Distribution
+
+- **Windows package:** [latest ToolMods release](https://github.com/sheepliu/Eglantine-toolmods/releases)
+- **ItemAdd package:** `tool_mods/04007EF01F8AE000/item-add/`
+- **Version record:** `VERSION.json` contains the upstream commit, game title ID,
+  and expected game `main` hash.
+- **Update policy:** the scheduled sync rebases the integration onto upstream
+  `nx2`; a successful rebase starts the Windows build and Release workflow.
+
+The original Eglantine documentation below remains available for emulator
+building, configuration, compatibility, and licensing details.
+
 <h1 align="center">
   <br>
   <a href="https://git.eden-emu.dev/eden-emu/eden"><img src="https://github.com/user-attachments/assets/35031845-4bfa-4916-8bf5-bc3bce67d5e2" alt="Eglantine" width="200"></a>
@@ -61,7 +83,8 @@ For information on provided development tooling, see the [Tools directory](./too
 
 ## Download
 
-You can download the latest releases from [here](https://github.com/Djihads80/Eglantine/releases).
+You can download the upstream Eglantine releases from [here](https://github.com/Djihads80/Eglantine/releases).
+For this fork's ToolMods-enabled Windows packages, use the [ToolMods Releases](https://github.com/sheepliu/Eglantine-toolmods/releases).
 
 ## Support
 
