@@ -1,6 +1,9 @@
 name: sync-toolmods-upstream
 
 on:
+  push:
+    branches:
+      - toolmods/build-194
   schedule:
     - cron: '17 4 * * *'
   workflow_dispatch:
