@@ -20,6 +20,8 @@
     "--wait",
     "180",
     "--skip-local-main-check",
+    "--cancel-file",
+    "{cancel_file}",
     "--report-dir",
     "{package_dir}\\reports"
   ],

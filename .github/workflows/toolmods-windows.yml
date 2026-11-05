@@ -146,7 +146,13 @@ jobs:
             'dist/tool_mods/04007EF01F8AE000/item-add/manifest.json',
             'dist/tool_mods/04007EF01F8AE000/item-add/items.json',
             'dist/tool_mods/04007EF01F8AE000/item-add/itemadd_gdb.py',
-            'dist/tool_mods/04007EF01F8AE000/item-add/README.md'
+            'dist/tool_mods/04007EF01F8AE000/item-add/README.md',
+            'dist/tool_mods/04007EF01F8AE000/friendship-adjust/manifest.json',
+            'dist/tool_mods/04007EF01F8AE000/friendship-adjust/characters.json',
+            'dist/tool_mods/04007EF01F8AE000/friendship-adjust/friendship_gdb.py',
+            'dist/tool_mods/04007EF01F8AE000/friendship-adjust/friendship_scan_gdb.py',
+            'dist/tool_mods/04007EF01F8AE000/friendship-adjust/itemadd_gdb.py',
+            'dist/tool_mods/04007EF01F8AE000/friendship-adjust/README.md'
           )
           foreach ($path in $required) { if (!(Test-Path -LiteralPath $path)) { throw "Missing package file: $path" } }
           $manifest = Get-Content -Raw -LiteralPath $required[0] | ConvertFrom-Json
@@ -154,6 +160,14 @@ jobs:
           $items = Get-Content -Raw -LiteralPath $required[1] | ConvertFrom-Json
           if ($items.Count -ne 580) { throw "Unexpected catalog count: $($items.Count)" }
           if (($items | Where-Object { [string]::IsNullOrWhiteSpace($_.name_zh_cn) }).Count -ne 0) { throw 'Simplified Chinese catalog field is incomplete' }
+          $friendship_manifest = Get-Content -Raw -LiteralPath $required[4] | ConvertFrom-Json
+          if ($friendship_manifest.id -ne 'friendship-adjust' -or
+              $friendship_manifest.api_version -ne 1 -or
+              $friendship_manifest.ui.type -ne 'numeric_action') {
+            throw 'Invalid Friendship Adjust manifest'
+          }
+          $characters = Get-Content -Raw -LiteralPath $required[5] | ConvertFrom-Json
+          if ($characters.Count -lt 1) { throw 'Friendship character catalog is empty' }
 
       - name: Package artifact
         id: package
