@@ -1,5 +1,15 @@
 # Friendship Adjust Runtime
 
+The v1.0.2 release includes `python-runtime` beside `eglantine.exe`; this
+package uses it directly, without system Python installation or PATH setup.
+Open the mod's management action in `Runtime Tool Mods`, enter the amount,
+and press Apply. No command-line step is required for the UI workflow.
+Use Cancel to withdraw a pending request before giving the gift.
+
+Disable Friendship multiplier IPS patches and restart the game before using
+this fixed-amount runtime mod. They change the same score-writer entry and
+the runtime intentionally rejects its altered signature.
+
 This package waits for one normal gift transaction in Fortune's Weave, then
 replaces the relationship-point delta at the game's own `GameReliance::IData`
 score writer. The original writer remains responsible for bounds, level

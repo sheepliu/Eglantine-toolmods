@@ -8,7 +8,7 @@
 <!-- lang: en-GB -->
 
 > **Eglantine ToolMods** is a maintained integration fork of Eglantine nx2 with a
-> generic runtime Tool Mod host and the inventory ItemAdd package for title
+> generic runtime Tool Mod host, ItemAdd and Friendship Adjust for title
 > `04007EF01F8AE000`.
 >
 > This fork tracks upstream numbered builds and release candidates as test
@@ -17,6 +17,9 @@
 > scheduled `sync-toolmods-upstream` workflow. Download them from the
 > [ToolMods Releases](https://github.com/sheepliu/Eglantine-toolmods/releases)
 > page. Extract the ZIP as a whole and keep `tool_mods` beside `eglantine.exe`.
+> Version 1.0.2 includes a bundled `python-runtime`; no system Python setup is
+> required. Extract the overlay into the matching upstream emulator package,
+> retaining its Qt DLLs and plugins. See [changes](CHANGELOG_TOOLMODS.md).
 
 ## ToolMods Distribution
 
@@ -24,6 +27,9 @@
 - **Test channels:** latest upstream `build-N` and latest semantic `-rcN` release.
 - **Stable channel:** latest upstream release marked as non-prerelease; no stable package is generated before one exists upstream.
 - **ItemAdd package:** `tool_mods/04007EF01F8AE000/item-add/`
+- **Friendship Adjust:** `tool_mods/04007EF01F8AE000/friendship-adjust/`
+- **Bundled runtime:** `python-runtime/` (CPython 3.13.12 amd64).
+- **Item catalog:** 1,355 entries, including examination certificates and upgrades.
 - **Version record:** `VERSION.json` contains the channel, exact upstream
   release tag and commit, ToolMods commit, game title ID, and expected game
   `main` hash.

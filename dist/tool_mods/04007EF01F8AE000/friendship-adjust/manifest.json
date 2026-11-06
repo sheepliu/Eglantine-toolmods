@@ -4,7 +4,7 @@
   "id": "friendship-adjust",
   "name": "Friendship Adjust Runtime",
   "version": "0.1.0",
-  "runtime": "python",
+  "runtime": "../../../python-runtime/python.exe",
   "entrypoint": "friendship_gdb.py",
   "entrypoint_args": [
     "-X",

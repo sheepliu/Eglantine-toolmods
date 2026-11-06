@@ -1,0 +1,8 @@
+{
+  "version": "1.0.2",
+  "item_catalog_count": 1355,
+  "item_catalog_sha256": "a08868ac162dfcf13bf3106258d5016e7d8dbd93300b6b18a601b3b940b86ab9",
+  "python_version": "3.13.12",
+  "python_url": "https://www.python.org/ftp/python/3.13.12/python-3.13.12-embed-amd64.zip",
+  "python_archive_sha256": "76f238f606250c87c6beac75dccd35ee99070a13490555936abb6cb64ecce3d0"
+}
