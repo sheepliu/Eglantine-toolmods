@@ -1,30 +1,31 @@
 # Item Add Runtime
 
-This self-contained tool-mod package targets the analyzed Fortune's Weave
-build. It owns its manifest, catalog, and runtime entrypoint. The generic
-host discovers the package, validates its manifest, substitutes request
-placeholders, and launches the declared runtime. Game-specific IID lookup and
-inventory commit logic stay in `itemadd_gdb.py`.
+This self-contained Fortune's Weave package owns its item catalog and runtime
+entrypoint. The generic ToolMods host launches it through the manifest; IID
+lookup and inventory commit logic remain in `itemadd_gdb.py`.
 
-The host substitutes `{entrypoint}`, `{package_dir}`, `{title_id}`, `{iid}`,
-and `{quantity}` in the manifest argument template. Reports are written to
-the package `reports` directory. The Eglantine GDB log is read from its normal
-per-user location.
+The v1.0.2 distribution includes `python-runtime` beside `eglantine.exe`.
+Keep that directory and `tool_mods` together. System Python installation and
+PATH setup are not required.
 
-The catalog includes Japanese, Traditional Chinese, and Simplified Chinese
-names. The Chinese labels are joined from the game's `TWzh` and `CNzh` Item
-message tables by the shared `MIID_*` label, so searching `伤药` resolves the
-same IID as `傷藥` and `傷薬`.
+1. Start Eglantine, enable the guest GDB Stub on port `6543`, and start the game.
+2. Open `Runtime Tool Mods`, enable Item Add, and open its management page
+   using the action on the mod's row.
+3. Search by Japanese, Traditional/Simplified Chinese name or IID. Select an
+   item and quantity, press `Add to Convoy`, then buy or pick up one normal
+   item in the game. That event supplies the inventory context for the request.
+4. Use `Cancel` to withdraw a pending request before its inventory event.
 
-Indirect workflow:
+The complete catalog contains 1,355 IIDs, including examination certificates
+and upgraded weapons. See [catalog details](CATALOG.md) for source evidence,
+fallback names, and exact examination-item IDs. Return to the mod list and
+reopen this page after updating `items.json`.
 
-1. Start Eglantine with the guest GDB Stub on port `6543`.
-2. Open `Runtime Tool Mods`, enable this package, press Save, reopen the
-   dialog, and open its item catalog.
-3. Select an item and quantity, press `Add to Convoy`, then trigger one normal
-   purchase or pickup. The entrypoint commits the selected item in that valid
-   inventory context and resumes the game.
+Reports are written to the package's `reports` directory, with process output
+in `runtime.log`. The runtime uses the emulator's per-user log to locate the
+guest main module. It checks the known game build before mutation.
 
-The package is pinned to the analyzed `main` SHA-256 and Build ID. `direct`
-mode is intentionally not used by the UI because a cached guest context is
-one-shot and not repeat-safe.
+Target Title ID: `04007EF01F8AE000`; main SHA-256:
+`616e7d906936ea4c2d908d0553cf69779e60242d769c40722267ee8bcb98e79a`.
+The UI uses the indirect inventory-event mode. Direct calls through a cached
+guest context are not repeat-safe and are not used by this interface.

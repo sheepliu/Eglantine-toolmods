@@ -3,9 +3,9 @@
   "api_version": 1,
   "id": "item-add",
   "name": "Item Add Runtime",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "catalog": "items.json",
-  "runtime": "python",
+  "runtime": "../../../python-runtime/python.exe",
   "entrypoint": "itemadd_gdb.py",
   "entrypoint_args": [
     "-X",

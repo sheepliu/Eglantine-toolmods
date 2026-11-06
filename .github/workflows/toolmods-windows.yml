@@ -24,7 +24,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: toolmods-windows-${{ inputs.release_channel }}
+  group: toolmods-windows-${{ inputs.release_channel }}-${{ inputs.upstream_ref }}
   cancel-in-progress: false
 
 jobs:
@@ -37,6 +37,7 @@ jobs:
     outputs:
       upstream_commit: ${{ steps.upstream.outputs.commit }}
       package_name: ${{ steps.package.outputs.name }}
+      toolmods_version: ${{ steps.package.outputs.version }}
     steps:
       - name: Check out integration source
         uses: actions/checkout@v5
@@ -78,11 +79,32 @@ jobs:
           git remote add upstream https://github.com/Djihads80/Eglantine.git
           git fetch --no-tags upstream "refs/tags/$UPSTREAM_REF"
           commit=$(git rev-parse 'FETCH_HEAD^{commit}')
+          git merge-base --is-ancestor "$commit" HEAD || {
+            echo "Integration branch does not contain upstream $UPSTREAM_REF ($commit)" >&2
+            exit 1
+          }
           echo "commit=$commit" >> "$GITHUB_OUTPUT"
           echo "Validated $RELEASE_CHANNEL release $UPSTREAM_REF at $commit"
 
       - name: Set up MSVC
         uses: ilammy/msvc-dev-cmd@v1
+
+      - name: Prepare bundled Python
+        shell: pwsh
+        run: |
+          $metadata = Get-Content -Raw -LiteralPath dist/toolmods-release.json | ConvertFrom-Json
+          $zip = Join-Path $env:RUNNER_TEMP 'toolmods-python.zip'
+          Invoke-WebRequest -Uri $metadata.python_url -OutFile $zip -MaximumRetryCount 3
+          if ((Get-FileHash -LiteralPath $zip -Algorithm SHA256).Hash -ne $metadata.python_archive_sha256) {
+            throw 'Python archive SHA256 mismatch'
+          }
+          Expand-Archive -LiteralPath $zip -DestinationPath artifact/python-runtime
+
+      - name: Verify packages without system Python
+        shell: pwsh
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: ./tools/toolmods/verify-packages.ps1 -RuntimeDirectory artifact/python-runtime
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v4
@@ -119,6 +141,7 @@ jobs:
         run: >-
           cmake -S . -B build/toolmods -G Ninja
           -DCMAKE_BUILD_TYPE=Release
+          -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
           -DBUILD_TESTING=OFF
           -DYUZU_TESTS=OFF
           -DYUZU_CMD=ON
@@ -131,6 +154,10 @@ jobs:
           -DCMAKE_C_COMPILER_LAUNCHER=sccache
           -DCMAKE_CXX_COMPILER_LAUNCHER=sccache
 
+      - name: Verify Release optimization
+        shell: pwsh
+        run: ./tools/toolmods/verify-release.ps1 -BuildDirectory build/toolmods -ReportPath build/toolmods/release-check.json
+
       - name: Build
         shell: bash
         run: cmake --build build/toolmods --target yuzu yuzu-cmd --parallel
@@ -141,33 +168,10 @@ jobs:
 
       - name: Verify package
         shell: pwsh
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
         run: |
-          $required = @(
-            'dist/tool_mods/04007EF01F8AE000/item-add/manifest.json',
-            'dist/tool_mods/04007EF01F8AE000/item-add/items.json',
-            'dist/tool_mods/04007EF01F8AE000/item-add/itemadd_gdb.py',
-            'dist/tool_mods/04007EF01F8AE000/item-add/README.md',
-            'dist/tool_mods/04007EF01F8AE000/friendship-adjust/manifest.json',
-            'dist/tool_mods/04007EF01F8AE000/friendship-adjust/characters.json',
-            'dist/tool_mods/04007EF01F8AE000/friendship-adjust/friendship_gdb.py',
-            'dist/tool_mods/04007EF01F8AE000/friendship-adjust/friendship_scan_gdb.py',
-            'dist/tool_mods/04007EF01F8AE000/friendship-adjust/itemadd_gdb.py',
-            'dist/tool_mods/04007EF01F8AE000/friendship-adjust/README.md'
-          )
-          foreach ($path in $required) { if (!(Test-Path -LiteralPath $path)) { throw "Missing package file: $path" } }
-          $manifest = Get-Content -Raw -LiteralPath $required[0] | ConvertFrom-Json
-          if ($manifest.id -ne 'item-add' -or $manifest.api_version -ne 1) { throw 'Invalid ItemAdd manifest' }
-          $items = Get-Content -Raw -LiteralPath $required[1] | ConvertFrom-Json
-          if ($items.Count -ne 580) { throw "Unexpected catalog count: $($items.Count)" }
-          if (($items | Where-Object { [string]::IsNullOrWhiteSpace($_.name_zh_cn) }).Count -ne 0) { throw 'Simplified Chinese catalog field is incomplete' }
-          $friendship_manifest = Get-Content -Raw -LiteralPath $required[4] | ConvertFrom-Json
-          if ($friendship_manifest.id -ne 'friendship-adjust' -or
-              $friendship_manifest.api_version -ne 1 -or
-              $friendship_manifest.ui.type -ne 'numeric_action') {
-            throw 'Invalid Friendship Adjust manifest'
-          }
-          $characters = Get-Content -Raw -LiteralPath $required[5] | ConvertFrom-Json
-          if ($characters.Count -lt 1) { throw 'Friendship character catalog is empty' }
+          ./tools/toolmods/verify-packages.ps1 -RuntimeDirectory artifact/python-runtime
 
       - name: Package artifact
         id: package
@@ -178,22 +182,32 @@ jobs:
           UPSTREAM_COMMIT: ${{ steps.upstream.outputs.commit }}
         run: |
           $sha = (git rev-parse HEAD).Trim()
+          $metadata = Get-Content -Raw -LiteralPath dist/toolmods-release.json | ConvertFrom-Json
           $version = [ordered]@{
+            toolmods_version = $metadata.version
             release_channel = $env:RELEASE_CHANNEL
             upstream_release = $env:UPSTREAM_REF
             upstream_commit = $env:UPSTREAM_COMMIT
             toolmods_commit = $sha
             game_title_id = '04007EF01F8AE000'
             main_sha256 = '616e7d906936ea4c2d908d0553cf69779e60242d769c40722267ee8bcb98e79a'
+            python_version = $metadata.python_version
+            python_archive_sha256 = $metadata.python_archive_sha256
+            item_catalog_count = $metadata.item_catalog_count
+            item_catalog_sha256 = $metadata.item_catalog_sha256
           }
           $version | ConvertTo-Json | Set-Content -Encoding utf8 dist/VERSION.json
           New-Item -ItemType Directory -Force artifact | Out-Null
           Copy-Item build/toolmods/bin/eglantine.exe artifact/eglantine.exe
           Copy-Item dist/tool_mods artifact/tool_mods -Recurse
           Copy-Item dist/VERSION.json artifact/VERSION.json
-          $name = "Eglantine-toolmods-$env:RELEASE_CHANNEL-$env:UPSTREAM_REF-$($sha.Substring(0,7))-windows-x64.zip"
+          Copy-Item dist/toolmods-release.json artifact/toolmods-release.json
+          Copy-Item build/toolmods/release-check.json artifact/release-check.json
+          Copy-Item CHANGELOG_TOOLMODS.md artifact/CHANGELOG_TOOLMODS.md
+          $name = "Eglantine-toolmods-v$($metadata.version)-$env:RELEASE_CHANNEL-$env:UPSTREAM_REF-$($sha.Substring(0,7))-windows-x64.zip"
           Compress-Archive -Path artifact/* -DestinationPath $name
           "name=$name" | Out-File -Append -Encoding utf8 $env:GITHUB_OUTPUT
+          "version=$($metadata.version)" | Out-File -Append -Encoding utf8 $env:GITHUB_OUTPUT
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -223,6 +237,7 @@ jobs:
           UPSTREAM_REF: ${{ inputs.upstream_ref }}
           UPSTREAM_COMMIT: ${{ needs.build.outputs.upstream_commit }}
           TOOLMODS_COMMIT: ${{ github.sha }}
+          TOOLMODS_VERSION: ${{ needs.build.outputs.toolmods_version }}
         run: |
           set -euo pipefail
           asset=$(find dist -maxdepth 1 -type f -name '*.zip' -print -quit)
@@ -230,30 +245,28 @@ jobs:
           release_tag="toolmods-$RELEASE_CHANNEL-$UPSTREAM_REF-${TOOLMODS_COMMIT::7}"
           prerelease_flag=()
           if [[ "$RELEASE_CHANNEL" != stable ]]; then prerelease_flag+=(--prerelease); fi
-          cat > notes.md <<EOF
-          ## Eglantine ToolMods package
-
-          **Release channel:** `$RELEASE_CHANNEL`
-
-          **Upstream Eglantine:** `$UPSTREAM_REF`
-
-          **Upstream source commit:** `$UPSTREAM_COMMIT`
-
-          **ToolMods integration revision:** `$TOOLMODS_COMMIT`
-
+          printf '## Eglantine ToolMods v%s\n\n**Release channel:** `%s`\n\n**Upstream Eglantine:** `%s`\n\n**Upstream source commit:** `%s`\n\n**ToolMods integration revision:** `%s`\n\n' \
+            "$TOOLMODS_VERSION" "$RELEASE_CHANNEL" "$UPSTREAM_REF" "$UPSTREAM_COMMIT" "$TOOLMODS_COMMIT" > notes.md
+          cat >> notes.md <<'EOF'
           ### Included ToolMods
 
           - Generic runtime Tool Mod host and per-mod UI protocol
-          - ItemAdd inventory catalog and runtime helper
+          - Complete 1,355-entry ItemAdd catalog, including examination certificates and upgraded weapons
           - Friendship Adjust UI, character catalog, and runtime helper
           - Cooperative cancellation for running runtime actions
+          - Bundled CPython 3.13.12: no system Python installation or PATH setup required
+          - Fixed package-relative runtime path resolution in both UI launch paths
+          - Release optimization and package checks before compilation
 
           ### Target game
 
           - Title ID: `04007EF01F8AE000`
           - `main` SHA-256: `616e7d906936ea4c2d908d0553cf69779e60242d769c40722267ee8bcb98e79a`
 
-          Extract the ZIP as a whole and keep `tool_mods` beside `eglantine.exe`.
+          Extract the ZIP as a whole into a complete Windows x64 Eglantine installation
+          of the **matching upstream release**. This is a ToolMods overlay package;
+          retain the upstream Qt DLLs and plugins. Keep both `tool_mods` and
+          `python-runtime` beside `eglantine.exe`. Copying only the EXE is insufficient.
           `VERSION.json` records the exact upstream release, source commit, and
           ToolMods revision. The short revision is included in this Release title
           and asset filename so different builds are distinguishable.
@@ -262,5 +275,5 @@ jobs:
             --repo "$GITHUB_REPOSITORY" \
             --target "$TOOLMODS_COMMIT" \
             "${prerelease_flag[@]}" \
-            --title "Eglantine ToolMods $RELEASE_CHANNEL: $UPSTREAM_REF [ToolMods ${TOOLMODS_COMMIT::7}]" \
+            --title "Eglantine ToolMods v$TOOLMODS_VERSION $RELEASE_CHANNEL: $UPSTREAM_REF [ToolMods ${TOOLMODS_COMMIT::7}]" \
             --notes-file notes.md

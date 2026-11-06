@@ -49,6 +49,20 @@ std::filesystem::path TitlePackageRoot(const QString& title_id) {
            "tool_mods" / title_id.toStdString();
 }
 
+QString ResolveRuntimeProgram(const QString& runtime,
+                              const std::filesystem::path& package_dir) {
+    const bool looks_like_path = runtime.contains(QLatin1Char('/')) ||
+                                 runtime.contains(QLatin1Char('\\')) ||
+                                 runtime.startsWith(QLatin1Char('.'));
+    if (!looks_like_path) {
+        return runtime;
+    }
+
+    const auto resolved = (package_dir / std::filesystem::u8path(runtime.toUtf8().constData()))
+                              .lexically_normal();
+    return QString::fromStdString(Common::FS::PathToUTF8String(resolved));
+}
+
 struct Package {
     QString id;
     QString name;
@@ -400,6 +414,7 @@ void ToolModManager::ShowDialog(QWidget* parent, u64 program_id) {
                         Common::FS::PathToUTF8String(package_dir));
                     const QString entrypoint_path = QString::fromStdString(
                         Common::FS::PathToUTF8String(package_dir / entrypoint.toStdString()));
+                    const QString runtime_program = ResolveRuntimeProgram(runtime, package_dir);
                     std::error_code entrypoint_ec;
                     const auto entrypoint_status =
                         std::filesystem::symlink_status(package_dir / entrypoint.toStdString(),
@@ -507,7 +522,7 @@ void ToolModManager::ShowDialog(QWidget* parent, u64 program_id) {
                         run, &QPushButton::clicked, action_page,
                         [dialog, process, run, cancel, status, process_running, cancel_file,
                          package_dir_string,
-                         title_id, runtime, entrypoint_path, entrypoint_args, value] {
+                         title_id, runtime_program, entrypoint_path, entrypoint_args, value] {
                             if (*process_running) {
                                 return;
                             }
@@ -522,7 +537,7 @@ void ToolModManager::ShowDialog(QWidget* parent, u64 program_id) {
                                 arg.replace(QStringLiteral("{cancel_file}"), cancel_file);
                                 args.append(std::move(arg));
                             }
-                            process->setProgram(runtime);
+                            process->setProgram(runtime_program);
                             process->setArguments(args);
                             process->setWorkingDirectory(package_dir_string);
                             QFile::remove(cancel_file);
@@ -832,7 +847,8 @@ void ToolModManager::ShowDialog(QWidget* parent, u64 program_id) {
                                          arg.replace(QStringLiteral("{cancel_file}"), cancel_file);
                                          args.append(std::move(arg));
                                      }
-                                     process->setProgram(runtime);
+                                     process->setProgram(
+                                         ResolveRuntimeProgram(runtime, package_dir));
                                      process->setArguments(args);
                                      process->setWorkingDirectory(package_dir_string);
                                       QFile::remove(cancel_file);
